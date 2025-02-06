@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="retro_computer">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/assets/fonts/retro_computer.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

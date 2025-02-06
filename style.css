@@ -1,0 +1,1003 @@
+@font-face {
+    font-family: 'RetroComputer';
+    src: url('assets/fonts/retro_computer/retro_computer_personal_use.ttf') format('truetype');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    
+    
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'RetroComputer', sans-serif;
+    width: 100%;
+    background-color: black;
+    overflow-y: auto;
+}
+html {
+    scroll-behavior: smooth;
+}
+h1, h2, .welcome, .demo, .name, .radio-container label {
+    font-family: 'RetroComputer', sans-serif;
+}
+
+
+
+
+
+
+/************************************* First section **********************************************/
+.container{
+    background-image: url('assets/images/firstComputer.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.container::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+    pointer-events: none; /* Empêche l'interaction avec le contenu de la seconde section */
+}
+
+.content-wrapper {
+    position: absolute;
+    top: 30%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: auto;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.demo, .name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: opacity 1s ease-in-out;
+}
+.demo {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #5ace5a ;
+    background-color:black;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin: auto;
+    
+
+}
+.name{
+    font-size: 0.7rem;
+    color: black;
+    display: flex;
+    flex-direction: column;
+
+
+}
+.hidden {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.visible {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+#loading{
+    font-family:'RetroComputer', sans-serif;
+}
+
+
+.loading {
+    text-align: center;
+  }
+  
+  .loading span {
+    display: inline-block;
+    width: 7px;
+    height: 20px;
+    background-color: #5ace5a;
+    opacity: 0;
+  }
+  
+  @keyframes loadingSequence {
+    0%, 20% { opacity: 1; }
+    21%, 100% { opacity: 1; }
+  }
+  
+  .loading span:nth-child(1) {
+    animation: loadingSequence 4s infinite;
+  }
+  
+  .loading span:nth-child(2) {
+    animation: loadingSequence 4s infinite 0.1s;
+  }
+  
+  .loading span:nth-child(3) {
+    animation: loadingSequence 4s infinite 0.15s;
+  }
+  
+  .loading span:nth-child(4) {
+    animation: loadingSequence 4s infinite 0.40s;
+  }
+  
+  .loading span:nth-child(5) {
+    animation: loadingSequence 4s infinite 0.6s;
+  }
+  .loading span:nth-child(6) {
+    animation: loadingSequence 4s infinite 0.75s;
+  }
+  .loading span:nth-child(7) {
+    animation: loadingSequence 4s infinite 0.9s;
+  }
+  .loading span:nth-child(8) {
+    animation: loadingSequence 4s infinite 1.05s;
+  }
+  .loading span:nth-child(9) {
+    animation: loadingSequence 4s infinite 1.25s;
+  }
+  .loading span:nth-child(10) {
+    animation: loadingSequence 4s infinite 1.5s;
+  }
+  .loading span:nth-child(11) {
+    animation: loadingSequence 4s infinite 1.7s;
+  }
+  
+  .loading span:nth-child(12) {
+    animation: loadingSequence 4s infinite 1.9s;
+  }
+  
+  .loading span:nth-child(13) {
+    animation: loadingSequence 4s infinite 2.1s;
+  }
+  
+  .loading span:nth-child(14) {
+    animation: loadingSequence 4s infinite 2.35s;
+  }
+  
+  .loading span:nth-child(15) {
+    animation: loadingSequence 4s infinite 2.6s;
+  }
+  .loading span:nth-child(16) {
+    animation: loadingSequence 4s infinite 2.85s;
+  }
+  .loading span:nth-child(17) {
+    animation: loadingSequence 4s infinite 3.15s;
+  }
+  .loading span:nth-child(18) {
+    animation: loadingSequence 4s infinite 3.4s;
+  }
+  .loading span:nth-child(19) {
+    animation: loadingSequence 4s infinite 3.6s;
+  }
+  .loading span:nth-child(20) {
+    animation: loadingSequence 4s infinite 4s;
+  }
+
+.radio-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.radio-container.visible {
+    display: flex;
+}
+
+.radio-container label {
+    font-size: 1rem;
+    color: black;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.radio-container input[type="radio"] {
+    display: none;
+}
+
+.radio-container input[type="radio"]:checked + label::before {
+    content: "(";
+}
+
+.radio-container input[type="radio"]:checked + label::after {
+    content: ")";
+}
+
+.welcome {
+    font-family: 'RetroComputer', sans-serif;
+    font-size: 1rem;
+    color: black;
+    line-height: 2.5; 
+}
+/************************************** Snake animation **************************************/
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
+
+main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -45px;
+    left: 8px;
+    
+    font-size: 1em;
+    font-family: "Press Start 2P";
+}
+
+.score-container {
+  position: absolute; 
+  top: -6px; 
+  left: 28px; 
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.score {
+  font-size: 1.5em;
+}
+
+.screen-container {
+    position: relative;
+
+}
+
+#closeGame {
+  position: absolute;
+  top: 15px;
+  right: -30px;
+  cursor: pointer;
+}
+
+.demo-snake.hidden {
+    visibility: hidden;
+}
+
+.message {
+  font-size: 1.5em;
+}
+
+.message.hidden {
+    visibility: hidden;
+}
+
+canvas {
+    display: block;
+    border: 1px solid black;
+    height: 320px;
+    width: 320px;
+    margin-top: 5px;
+}
+
+
+
+
+
+
+
+
+/************************************* Second section **********************************************/
+.container, .second-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+  border-radius: 5px;
+}
+
+.back-button:hover {
+  background-color: #555;
+}
+
+.second-section {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    background-image: url('assets/images/thirdComputer.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative; 
+}
+
+.second-section {
+  position: relative;
+  overflow: hidden;
+}
+.second-section::before,
+.second-section::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 19.1%;
+    background-color: black;
+    transition: transform 2.5s ease-out;
+    z-index: 10;
+}
+
+.second-section::before {
+    left: 0;
+    transform: translateX(0);
+}
+
+.second-section::after {
+    right: 0;
+    transform: translateX(0);
+}
+
+.second-section.animate::before {
+    transform: translateX(-100%);
+}
+
+.second-section.animate::after {
+    transform: translateX(100%);
+}
+
+.second-section.animate-complete::before,
+.second-section.animate-complete::after {
+    display: none;
+}
+
+
+
+
+.second-section.visible {
+    display: block;
+}
+
+.container, .second-section {
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.container.hidden, .second-section.hidden {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.container.visible, .second-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute; 
+    top: 38%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 90%; 
+    max-width: 1200px; 
+    padding: 10px;
+}
+
+.projects-content-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-auto-flow: dense;
+    grid-gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+.projects-content-wrapper h2{
+    text-align: center;
+    color: rgb(8, 4, 243);
+}
+
+
+.projects-content-wrapper > *:nth-child(1) {
+    grid-column: span 3;
+}
+
+.projects-content-wrapper > *:nth-child(2),
+.projects-content-wrapper > *:nth-child(3),
+.projects-content-wrapper > *:nth-child(4) {
+    grid-column: span 1;
+}
+
+.projects-content-wrapper > *:nth-child(5) {
+    grid-column: span 3;
+}
+
+.projects-content-wrapper > *:nth-child(6),
+.projects-content-wrapper > *:nth-child(7),
+.projects-content-wrapper > *:nth-child(8) {
+    grid-column: span 1;
+}
+.titleLogo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.project-detail {
+    background-image: url('assets/images/seventhComputer.jpg');
+    height: 100vh;
+    width: 100%;
+    font-family: 'Orbitron', sans-serif; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    margin: 0; 
+    padding: 0; 
+    overflow: hidden; 
+}
+
+.project-detail-wrapper{
+  background-color: #7F868C ;
+  position: relative;
+  top: 6%;
+  width: 80%;
+  height: 53%;
+  max-width: 780px;
+  padding: 20px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); /* Adjust shadow to appear behind */
+  overflow-y: auto; /* Ensure vertical scrolling */
+ 
+}
+.project-detail h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.project-detail p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.project-detail button {
+    font-size: 1rem;
+    color: black;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 3%;
+    right: 2%;
+}
+
+.project-detail button img{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.project-detail button span {
+    display: none;
+}
+
+.project-detail button:hover span {
+    display: inline;
+    margin-left: 10px;
+}
+
+.project-detail button:hover {
+    background-color: #5ace5a;
+    color: black;
+}
+.project {
+    position: relative;
+    display: inline-block;
+}
+
+.project img {
+    display: block;
+}
+
+.project p{
+    position: absolute;
+    top: 60%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 0.4rem;
+    font-weight: bold; 
+    text-align: center;
+}
+
+.project-detail-wrapper .pdf-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px 0;
+}
+.project-detail-wrapper .pdf-button:hover {
+  background: none;
+}
+
+.pdf-button img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.pdf-button span {
+    font-size: 1rem;
+}
+
+.project-detail-wrapper button{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1rem;
+  color: black;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+}
+
+.logoName{
+  height: 40px !important;
+  width: 100px !important;
+}
+
+.project-detail .pdf-goback{
+  background: none;
+}
+.project-detail .pdf-goback:hover{
+  background: none;
+}
+.project-detail .pdf-goback{
+  position: absolute;
+  top: 400px;
+ right: 230px;
+  font-size: 1rem;
+  color:  #5ace5a;
+  border: solid 1px #5ace5a;
+  border-radius: 5px;
+  height: 40px;
+  animation: bounceIn 2s ease-in-out;
+  cursor: pointer;
+}
+
+@keyframes bounceIn {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.pdf-goback img {
+    width: 50px;
+    height: 50px;
+}
+
+.project.selected {
+    outline: 2px solid rgb(0, 58, 248);
+    box-shadow: 0 0 10px rgb(0, 58, 248);
+    padding: 5px;
+}
+.logoProject{
+  width: 200px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  align-items: center;
+  justify-items: center;
+}
+.logoProject img{
+  height: 50px;
+  width: 50px;
+}
+.second-section-skills-contact{
+ display: flex;
+ flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.skills{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact img{
+  height: 70px;
+  width: 70px;
+}
+.skills img{
+  height: 70px;
+  width: 70px;
+}
+
+/************************************* Third section **********************************************/
+.third-section {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url('assets/images/sixthComputer.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1000;
+}
+
+
+.third-section.visible {
+  display: block;
+}
+.third-back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+  border-radius: 5px;
+}
+
+.third-back-button:hover {
+  background-color: #555;
+}
+
+.Transversal-skills{
+  
+  transform:  rotateX(-4deg) skew(1.8deg,1.8deg)
+   /* rotateY(20deg) rotateZ(2.2deg); */
+   perspective(1000px);
+  transform-style: preserve-3d;
+
+
+}
+.perspective-skills{
+  position:absolute;
+  z-index: 3;
+  top: 30%;
+  left: 12%;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  perspective: 1000px;
+  perspective-origin:left;
+  width: 400px;
+}
+
+.perspective-skills h2{
+  text-align: center;
+}
+
+.transversal-skills-content-wrapper{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  position: relative;
+  z-index: 3;
+  grid-gap: 5px;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  gap: 5px;
+  height: 200px;
+}
+.transversal-skills-content-wrapper img{
+  height: 60px;
+  
+}
+.skills-contact{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  flex-direction: column;
+  top: 10vh;
+  left: 2%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.skills-content-wrapper{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+/*************************************************CARDS**********************************/
+.card3d {
+  perspective: 1000px;
+}
+
+.card-content {
+  transition: transform 0.3s, filter 0.3s;
+  transform-style: preserve-3d;
+  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+/* Media query for mobile devices */
+@media (max-width: 767px) and (orientation: portrait) {
+  .container {
+      background-image: url('assets/images/telephone/firstSectionImage\ -\ Copie\ \(2\).jpeg');
+      background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+  }
+  .content-wrapper {
+    position: absolute;
+    top: 20%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: auto;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.demo, .name {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: opacity 1s ease-in-out;
+}
+.demo {
+    font-size: 0.7rem;
+    text-align: center;
+    color: #5ace5a ;
+    background-color:black;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin: auto;
+    
+
+}
+.name{
+    font-size: 0.4rem;
+    color: black;
+    display: flex;
+    flex-direction: column;
+
+
+}
+.welcome {
+  font-family: 'RetroComputer', sans-serif;
+  font-size: 0.8rem;
+  color: black;
+  line-height: 1.9; 
+}
+.radio-container label {
+  font-size: 0.8rem;
+  color: black;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.second-section{
+  background-image: url('assets/images/telephone/secondSectionImage2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative; 
+}
+
+.third-section{
+  background-image: url('assets/images/telephone/projectpage.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative; 
+  height: 100%;
+}
+canvas {
+  display: block;
+  border: 1px solid black;
+  height: 120px;
+  width: 120px;
+  margin-top: 5px;
+}
+
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -45px;
+  left: -1px;
+  
+  font-size: 1em;
+  font-family: "Press Start 2P";
+}
+
+.score-container {
+position: absolute; 
+top: 6px; 
+left: 20px; 
+width: 120px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+#closeGame {
+  top: 200px;
+  right: 65px;
+}
+}
+/*****mobile horizontal*****/
+@media (max-width: 844px) and (orientation: landscape) {
+  .welcome {
+    font-family: 'RetroComputer', sans-serif;
+    font-size: 0.7rem;
+    color: black;
+    line-height: 1.5; 
+    
+  }
+  .name{
+    font-size: 0.4rem;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    top:-40px;
+    left: 80px;
+    width: 150px;
+
+}
+.content-wrapper {
+  top:35%;
+  width: 300px;
+}
+.radio-container label {
+  font-size: 0.7rem;
+  color: black;
+  margin: 0 10px;
+  cursor: pointer;
+}
+canvas {
+  
+  height: 150px !important;
+  width: 150px !important;
+  margin-top: 2px;
+}
+.score-container{
+  position: absolute;
+  top: -6px;
+  left: 74px;
+  width: 150px;
+
+}
+.projects{
+  top: 34%;
+  left: 51%;
+}
+.project-icon{
+  width: 60px !important;
+  height: 60px !important;
+  
+}
+.projects-content-wrapper{
+  width: 250px !important;
+  height: 150px;
+  grid-gap:5px;
+  justify-items: center;
+
+}
+.projects-content-wrapper h2{
+  font-size: 0.6rem;
+}
+.projects-content-wrapper p{
+  font-size: 0.3rem;
+}
+.project p{
+  left: 30px;
+}
+}
+/*****mobile vertical*****/
+@media (max-width: 390px) and (orientation: portrait) {
+  .name{
+    position: absolute;
+    top: 100%;
+  }
+.content-wrapper {
+  top: 40%;
+  left: 44%;
+}
+canvas {
+  
+  height: 180px;
+  width: 180px;
+  margin-top: 2px;
+}
+#closeGame {
+  top: 200px;
+  right: 22px;
+}
+.score-container {
+  position: absolute; 
+  top: -99px; 
+  left: 20px; 
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+}
+
+/*****ipad horizontal*****/
+@media (max-width: 1024px) and (orientation: landscape) {
+  canvas{
+    height: 280px;
+    width: 280px;
+
+  }
+  .score-container{
+    top:-6px
+  }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3 - Kévin VELLARD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="project-detail">
+        <div class="project-detail-wrapper">
+            <h1>Project 1</h1>
+            <p>Description of Project 1...</p>
+            <!-- Add more details about Project 1 here -->
+            <button class="pdf-button" onclick="window.location.href='project-pdf.html'">
+                <img src="path/to/your/thumbnail.jpg" alt="PDF Thumbnail">
+                <span>Open PDF</span>
+            </button>
+            <iframe id="pdf-frame"></iframe>
+        </div>
+        <button onclick="window.location.href='index.html'">
+            <img src="./assets/images/firstComputer.jpg" alt="">
+            <span>Retour à la page principale</span>
+        </button>
+    </section>
+    <script>
+        function openPDF(url) {
+            const pdfFrame = document.getElementById('pdf-frame');
+            pdfFrame.src = url;
+            pdfFrame.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
