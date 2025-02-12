@@ -14,7 +14,7 @@ const {
   showThirdSection,
   returnToSecondSection,
   handleEscapeKey,
-} = require("./src/index.js");
+} = require("./index.js");
 
 describe("scrambleText", () => {
   it("should scramble text and then display final text", (done) => {
