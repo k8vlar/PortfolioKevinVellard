@@ -347,7 +347,7 @@ function initSnakeGame() {
 
 function showGameOver() {
     nameElement.innerHTML = `
-        <img src='../assets/images/gameover.png' 
+        <img src='./assets/images/gameover.png' 
              alt='Game Over' 
              style='width: 100%; height: auto; cursor: pointer;'>
              <p>scores: <span>${document.querySelector('.score span').innerText}</span></p>
@@ -490,18 +490,18 @@ function updateBestScore(currentScore) {
         
         if (isHovered) {
             img.src = isLastProject 
-                ? '../assets/images/icons/saveicon/double/icons8-tout-sauvegarder-80.webp'
-                : '../assets/images/icons/computer/open/icons8-dossier-ouvert-80.png';
+                ? './assets/images/icons/saveicon/double/icons8-tout-sauvegarder-80.webp'
+                : './assets/images/icons/computer/open/icons8-dossier-ouvert-80.png';
         } else {
             img.src = isLastProject
-                ? '../assets/images/icons/saveicon/icons8-sauvegarder-80.webp'
-                : '../assets/images/icons/computer/icons8-dossier-80.webp';
+                ? './assets/images/icons/saveicon/icons8-sauvegarder-80.webp'
+                : './assets/images/icons/computer/icons8-dossier-80.webp';
         }
 
         if (isVeryLastProject) {
             img.src = isHovered
-                ? '../assets/images/icons/icons8-décrocher-le-téléphone-100.webp'
-                : '../assets/images/icons/icons8-téléphone-raccroché-100.webp';
+                ? './assets/images/icons/icons8-décrocher-le-téléphone-100.webp'
+                : './assets/images/icons/icons8-téléphone-raccroché-100.webp';
         }
         
     }
