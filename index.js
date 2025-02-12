@@ -500,7 +500,7 @@ function updateBestScore(currentScore) {
 
         if (isVeryLastProject) {
             img.src = isHovered
-                ? './assets/images/icons/icons8-décrocher-le-téléphone-100.webp'
+                ? './asset/images/icons/icons8-décrocher-le-téléphone-100.webp'
                 : './assets/images/icons/icons8-téléphone-raccroché-100.webp';
         }
         
