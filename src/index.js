@@ -1,8 +1,15 @@
+
 ////////////////////////////////////////////////////CONTAINER SECTION///////////////////////////////////////////////
 // Animation de texte déroulant
-function scrambleText(element, finalText, duration = 4000, callback) {
+/**
+ * Scrambles the text of an HTML element to create an animation effect.
+ * @param {HTMLElement} element - The HTML element whose text will be scrambled.
+ * @param {string} finalText - The final text that will be displayed after the animation.
+ * @param {number} [duration=2000] - The duration of the animation in milliseconds.
+ * @param {Function} [callback] - A callback function that will be called after the animation completes.
+ */
+function scrambleText(element, finalText, duration = 2000, callback) {
     const characters = 'abcdefghijklmnopqrstuvwxyz';
-    let currentText = element.innerText;
     const finalLength = finalText.length;
     let startTime;
 
@@ -30,7 +37,7 @@ function scrambleText(element, finalText, duration = 4000, callback) {
             if (callback) callback();
         }
     }
-
+    
     requestAnimationFrame(animate);
 }
 
@@ -58,40 +65,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Initial loading animation   container section////////////////////////
     if (!sessionStorage.getItem('loadingCompleted')) {
-        scrambleText(loadingElement, "Loading", 2000, function() {
+        scrambleText(loadingElement, "Loading", 1000, function() {
             setTimeout(function() {
                 demoElement.classList.add('hidden');
                 nameElement.classList.add('visible');
-                scrambleText(welcomeElement, "Bienvenue\nje suis KEVIN VELLARD\nDEVELOPPEUR FULLSTACK\nVEUX TU EN SAVOIR PLUS?", 2500, function() {
+                scrambleText(welcomeElement, "Bienvenue\nje suis KEVIN VELLARD\nDEVELOPPEUR FULLSTACK\nVEUX TU EN SAVOIR PLUS?", 1500, function() {
                     radioContainer.classList.add('visible');
                     sessionStorage.setItem('loadingCompleted', 'true');
                 });
-            }, 1000);
+            }, 500);
         });
     } else {
-        demoElement.style.display = 'none';
+        demoElement.style.opacity = '0';
+        demoElement.style.pointerEvents = 'none';
         nameElement.classList.add('visible');
         welcomeElement.innerText = "Bienvenue\nje suis KEVIN VELLARD\nDEVELOPPEUR FULLSTACK\nVEUX TU EN SAVOIR PLUS?";
         radioContainer.classList.add('visible');
         if (secondSectionVisible) {
             secondSection.classList.add('visible');
         }
-        if (thirdSectionVisible) {
-            thirdSection.classList.add('visible');
-        }
     }
 
     //////////////////////////// Radio button functionality section container/////////////////////////////////////////
-
-    // function handleOptionChange(event) {
-    //     event.preventDefault();
-    //     if (radioN.checked) {
-    //         nameElement.classList.add('hidden');
-    //         initSnakeGame();
-    //     } else if (radioO.checked) {
-    //         showSecondSection();
-    //     }
-    // }
 
 
 
@@ -115,32 +110,58 @@ function handleOptionChange(event) {
         showSecondSection();
     }
 }
+// Lazy loading des images
+const images = document.querySelectorAll('img[data-src]');
+const config = {
+    rootMargin: '50px 0px',
+    threshold: 0.01
+};
+
+let observer = new IntersectionObserver((entries, self) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            preloadImage(entry.target);
+            self.unobserve(entry.target);
+        }
+    });
+}, config);
+
+images.forEach(image => {
+    observer.observe(image);
+});
+
+function preloadImage(img) {
+    const src = img.getAttribute('data-src');
+    if (!src) { return; }
+    img.src = src;
+}
+
 
 function initSnakeGame() {
     nameElement.innerHTML = `
         <main>
             <div class="score-container">
-            <div class="message">SnakeGame</div>
+                <div class="message">SnakeGame</div>
                 <div class="score">Score: <span>0</span></div>
+                <div class="best-score">Best Score: <span>${getBestScore()}</span></div>
             </div>
             <div class="screen-container">
                 <div class="demo-snake hidden">Snake</div>
                 <canvas width="480" height="460" id="screen"></canvas>
                 <button id="closeGame">X</button>
             </div>
-            
         </main>
     `;
 
     const canvas = document.querySelector('#screen');
     const ctx = canvas.getContext('2d');
-    const canvasWidth = 480; // Exemple
-const canvasHeight = 460; // Exemple
-const gridSize = 20;
+    const canvasWidth = 480;
+    const canvasHeight = 460;
+    const gridSize = 20;
 
-if (canvasWidth % gridSize !== 0 || canvasHeight % gridSize !== 0) {
-    console.error("Le canvas n'est pas divisible par la taille de la grille !");
-}
+    if (canvasWidth % gridSize !== 0 || canvasHeight % gridSize !== 0) {
+        console.error("Le canvas n'est pas divisible par la taille de la grille !");
+    }
 
     const rows = canvas.height / gridSize;
     const columns = canvas.width / gridSize;
@@ -154,9 +175,8 @@ if (canvasWidth % gridSize !== 0 || canvasHeight % gridSize !== 0) {
         console.log("Snake Tail:", snake.tail);
         console.log("Fruit:", fruit.x, fruit.y);
     }
-    
-    setInterval(debugPositions, 1000); // Affiche les positions toutes les secondes
-    
+
+    setInterval(debugPositions, 1000);
 
     class Snake {
         constructor() {
@@ -166,12 +186,11 @@ if (canvasWidth % gridSize !== 0 || canvasHeight % gridSize !== 0) {
             this.ySpeed = 0;
             this.total = 3;
             this.tail = [
-                {x: this.x - 2 * gridSize, y: this.y},
-                {x: this.x - gridSize, y: this.y},
-                {x: this.x, y: this.y}
+                { x: this.x - 2 * gridSize, y: this.y },
+                { x: this.x - gridSize, y: this.y },
+                { x: this.x, y: this.y }
             ];
         }
-        
 
         draw() {
             ctx.fillStyle = "black";
@@ -196,7 +215,7 @@ if (canvasWidth % gridSize !== 0 || canvasHeight % gridSize !== 0) {
         }
 
         changeDirection(direction) {
-            switch(direction) {
+            switch (direction) {
                 case 'Up':
                     if (this.ySpeed !== gridSize) {
                         this.xSpeed = 0;
@@ -253,26 +272,26 @@ if (canvasWidth % gridSize !== 0 || canvasHeight % gridSize !== 0) {
             do {
                 this.x = Math.floor(Math.random() * columns) * gridSize;
                 this.y = Math.floor(Math.random() * rows) * gridSize;
-            } while (this.isOnSnake({x: this.x, y: this.y}) || !this.isAlignedWithGrid());
+            } while (this.isOnSnake({ x: this.x, y: this.y }) || !this.isAlignedWithGrid());
         }
-        
-        // Vérifie si les coordonnées sont alignées avec la grille
+
         isAlignedWithGrid() {
-            return this.x % gridSize === 0 && this.y % gridSize === 0;
+            return (
+                this.x % gridSize === 0 && 
+                this.y % gridSize === 0
+            );
         }
-        
-        
 
         isOnSnake(position) {
-            return snake.tail.some(segment => 
-                segment.x === position.x && segment.y === position.y
-            ) || (snake.x === position.x && snake.y === position.y);
+            return (
+                snake.tail.some(segment => segment.x === position.x && segment.y === position.y) ||
+                (snake.x === position.x && snake.y === position.y)
+            );
         }
-        
 
         draw() {
             ctx.fillStyle = "#FF0000";
-            ctx.fillRect(this.x, this.y, gridSize, gridSize)
+            ctx.fillRect(this.x, this.y, gridSize, gridSize);
         }
     }
 
@@ -295,7 +314,14 @@ if (canvasWidth % gridSize !== 0 || canvasHeight % gridSize !== 0) {
                 gameOver();
             }
 
-            document.querySelector('.score span').innerText = snake.total - 3;
+            const currentScore = snake.total - 3;
+
+            // Mettre à jour le score affiché
+            document.querySelector('.score span').innerText = currentScore;
+
+            // Vérifier et mettre à jour le meilleur score
+            updateBestScore(currentScore);
+
         }, 100);
     }
 
@@ -304,7 +330,7 @@ if (canvasWidth % gridSize !== 0 || canvasHeight % gridSize !== 0) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    window.addEventListener('keydown', (evt) => {
+    window.addEventListener('keydown', evt => {
         if (evt.key === 'Escape') {
             gameOver();
         } else {
@@ -321,16 +347,34 @@ if (canvasWidth % gridSize !== 0 || canvasHeight % gridSize !== 0) {
 
 function showGameOver() {
     nameElement.innerHTML = `
-        <img src='assets/images/gameover.png' 
+        <img src='../assets/images/gameover.png' 
              alt='Game Over' 
              style='width: 100%; height: auto; cursor: pointer;'>
              <p>scores: <span>${document.querySelector('.score span').innerText}</span></p>
+             <p>Best Score: <span>${getBestScore()}</span></p>
     `;
     
     nameElement.classList.remove('hidden');
     document.querySelector('.name img').addEventListener('click', function() {
         location.reload();
     });
+}
+
+// Fonction pour récupérer le meilleur score depuis localStorage
+function getBestScore() {
+    return localStorage.getItem('bestScore') || 0; // Retourne "0" si aucun score n'est enregistré
+}
+
+// Fonction pour mettre à jour le meilleur score dans localStorage
+function updateBestScore(currentScore) {
+    const bestScore = getBestScore();
+    
+    if (currentScore > bestScore) {
+        localStorage.setItem('bestScore', currentScore);
+        
+        // Mettre à jour l'affichage du meilleur score
+        document.querySelector('.best-score span').innerText = currentScore;
+    }
 }
 
 
@@ -446,18 +490,18 @@ function showGameOver() {
         
         if (isHovered) {
             img.src = isLastProject 
-                ? './assets/images/icons/saveicon/double/icons8-tout-sauvegarder-80.png'
-                : './assets/images/icons/computer/open/icons8-dossier-ouvert-80.png';
+                ? '../assets/images/icons/saveicon/double/icons8-tout-sauvegarder-80.png'
+                : '../assets/images/icons/computer/open/icons8-dossier-ouvert-80.png';
         } else {
             img.src = isLastProject
-                ? './assets/images/icons/saveicon/icons8-sauvegarder-80.png'
-                : './assets/images/icons/computer/icons8-dossier-80.svg';
+                ? '../assets/images/icons/saveicon/icons8-sauvegarder-80.png'
+                : '../assets/images/icons/computer/icons8-dossier-80.svg';
         }
 
         if (isVeryLastProject) {
             img.src = isHovered
-                ? './assets/images/icons/icons8-décrocher-le-téléphone-100.png'
-                : './assets/images/icons/icons8-téléphone-raccroché-100.png';
+                ? '../assets/images/icons/icons8-décrocher-le-téléphone-100.png'
+                : '../assets/images/icons/icons8-téléphone-raccroché-100.png';
         }
         
     }

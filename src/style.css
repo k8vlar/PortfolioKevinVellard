@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'RetroComputer';
-    src: url('assets/fonts/retro_computer/retro_computer_personal_use.ttf') format('truetype');
+    src: url('../assets/fonts/retro_computer/retro_computer_personal_use.ttf') format('truetype');
 }
 
 body {
@@ -30,7 +30,7 @@ h1, h2, .welcome, .demo, .name, .radio-container label {
 
 /************************************* First section **********************************************/
 .container{
-    background-image: url('assets/images/firstComputer.jpg');
+    background-image: url('../assets/images/firstComputer.webp');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -99,7 +99,7 @@ h1, h2, .welcome, .demo, .name, .radio-container label {
     opacity: 1;
     transition: opacity 1s ease-in-out;
 }
-
+/*ANIMATION LOADING*/
 #loading{
     font-family:'RetroComputer', sans-serif;
 }
@@ -190,7 +190,7 @@ h1, h2, .welcome, .demo, .name, .radio-container label {
   .loading span:nth-child(20) {
     animation: loadingSequence 4s infinite 4s;
   }
-
+/************************************** Radio buttons **************************************/
 .radio-container {
     display: none;
     justify-content: center;
@@ -220,7 +220,7 @@ h1, h2, .welcome, .demo, .name, .radio-container label {
 .radio-container input[type="radio"]:checked + label::after {
     content: ")";
 }
-
+/**WELCOME TEXT */
 .welcome {
     font-family: 'RetroComputer', sans-serif;
     font-size: 1rem;
@@ -326,7 +326,7 @@ canvas {
     display: none;
     height: 100vh;
     width: 100%;
-    background-image: url('assets/images/thirdComputer.jpg');
+    background-image: url('../assets/images/thirdComputer.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -446,7 +446,7 @@ canvas {
   gap: 10px;
 }
 .project-detail {
-    background-image: url('assets/images/seventhComputer.jpg');
+    background-image: url('../assets/images/seventhComputer.webp');
     height: 100vh;
     width: 100%;
     font-family: 'Orbitron', sans-serif; 
@@ -669,7 +669,7 @@ canvas {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-image: url('assets/images/sixthComputer.jpg');
+  background-image: url('../assets/images/sixthComputer.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -779,7 +779,7 @@ canvas {
 /* Media query for mobile devices */
 @media (max-width: 767px) and (orientation: portrait) {
   .container {
-      background-image: url('assets/images/telephone/firstSectionImage\ -\ Copie\ \(2\).jpeg');
+      background-image: url('../assets/images/telephone/firstSectionImage\ -\ Copie\ \(2\).jpeg');
       background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -839,7 +839,7 @@ canvas {
   cursor: pointer;
 }
 .second-section{
-  background-image: url('assets/images/telephone/secondSectionImage2.jpg');
+  background-image: url('../assets/images/telephone/secondSectionImage2.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -847,7 +847,7 @@ canvas {
 }
 
 .third-section{
-  background-image: url('assets/images/telephone/projectpage.jpg');
+  background-image: url('../assets/images/telephone/projectpage.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
