@@ -262,6 +262,19 @@ main {
     position: relative;
 
 }
+.controls {
+  display: none; /* Caché par défaut, affiché uniquement sur mobile */
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.controls button {
+  font-size: 24px;
+  padding: 10px 15px;
+  margin: 0 5px;
+}
+
+
 
 #closeGame {
   position: absolute;
@@ -889,6 +902,9 @@ align-items: center;
   top: 200px;
   right: 65px;
 }
+.controls {
+  display: flex;
+}
 }
 /*****mobile horizontal*****/
 @media (max-width: 844px) and (orientation: landscape) {
@@ -957,6 +973,9 @@ canvas {
 .project p{
   left: 30px;
 }
+.controls {
+  display: flex;
+}
 }
 /*****mobile vertical*****/
 @media (max-width: 390px) and (orientation: portrait) {
@@ -987,6 +1006,9 @@ canvas {
   justify-content: space-between;
   align-items: center;
   }
+  .controls {
+    display: flex;
+}
 }
 
 /*****ipad horizontal*****/
@@ -999,4 +1021,7 @@ canvas {
   .score-container{
     top:-6px
   }
+  .controls {
+    display: flex;
+}
 }

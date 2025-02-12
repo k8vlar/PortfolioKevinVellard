@@ -150,6 +150,12 @@ function initSnakeGame() {
                 <canvas width="480" height="460" id="screen"></canvas>
                 <button id="closeGame">X</button>
             </div>
+             <div class="controls">
+                <button id="upBtn">↑</button>
+                <button id="leftBtn">←</button>
+                <button id="rightBtn">→</button>
+                <button id="downBtn">↓</button>
+            </div>
         </main>
     `;
 
@@ -341,6 +347,49 @@ function initSnakeGame() {
 
     document.getElementById('closeGame').addEventListener('click', gameOver);
 
+    document.getElementById('upBtn').addEventListener('click', () => snake.changeDirection('Up'));
+    document.getElementById('leftBtn').addEventListener('click', () => snake.changeDirection('Left'));
+    document.getElementById('rightBtn').addEventListener('click', () => snake.changeDirection('Right'));
+    document.getElementById('downBtn').addEventListener('click', () => snake.changeDirection('Down'));
+
+    // Gestion des événements tactiles pour le swipe
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+
+    canvas.addEventListener('touchstart', function(event) {
+        touchStartX = event.changedTouches[0].screenX;
+        touchStartY = event.changedTouches[0].screenY;
+    }, false);
+
+    canvas.addEventListener('touchend', function(event) {
+        touchEndX = event.changedTouches[0].screenX;
+        touchEndY = event.changedTouches[0].screenY;
+        handleSwipe();
+    }, false);
+
+    function handleSwipe() {
+        let diffX = touchEndX - touchStartX;
+        let diffY = touchEndY - touchStartY;
+
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+            // Swipe horizontal
+            if (diffX > 0) {
+                snake.changeDirection('Right');
+            } else {
+                snake.changeDirection('Left');
+            }
+        } else {
+            // Swipe vertical
+            if (diffY > 0) {
+                snake.changeDirection('Down');
+            } else {
+                snake.changeDirection('Up');
+            }
+        }
+    }
+    
     nameElement.classList.remove('hidden');
     startSnakeGame();
 }
