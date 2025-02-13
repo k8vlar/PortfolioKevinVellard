@@ -150,12 +150,6 @@ function initSnakeGame() {
                 <canvas width="480" height="460" id="screen"></canvas>
                 <button id="closeGame">X</button>
             </div>
-             <div class="controls">
-                <button id="upBtn">↑</button>
-                <button id="leftBtn">←</button>
-                <button id="rightBtn">→</button>
-                <button id="downBtn">↓</button>
-            </div>
         </main>
     `;
 
@@ -347,49 +341,6 @@ function initSnakeGame() {
 
     document.getElementById('closeGame').addEventListener('click', gameOver);
 
-    document.getElementById('upBtn').addEventListener('click', () => snake.changeDirection('Up'));
-    document.getElementById('leftBtn').addEventListener('click', () => snake.changeDirection('Left'));
-    document.getElementById('rightBtn').addEventListener('click', () => snake.changeDirection('Right'));
-    document.getElementById('downBtn').addEventListener('click', () => snake.changeDirection('Down'));
-
-    // Gestion des événements tactiles pour le swipe
-    let touchStartX = 0;
-    let touchStartY = 0;
-    let touchEndX = 0;
-    let touchEndY = 0;
-
-    canvas.addEventListener('touchstart', function(event) {
-        touchStartX = event.changedTouches[0].screenX;
-        touchStartY = event.changedTouches[0].screenY;
-    }, false);
-
-    canvas.addEventListener('touchend', function(event) {
-        touchEndX = event.changedTouches[0].screenX;
-        touchEndY = event.changedTouches[0].screenY;
-        handleSwipe();
-    }, false);
-
-    function handleSwipe() {
-        let diffX = touchEndX - touchStartX;
-        let diffY = touchEndY - touchStartY;
-
-        if (Math.abs(diffX) > Math.abs(diffY)) {
-            // Swipe horizontal
-            if (diffX > 0) {
-                snake.changeDirection('Right');
-            } else {
-                snake.changeDirection('Left');
-            }
-        } else {
-            // Swipe vertical
-            if (diffY > 0) {
-                snake.changeDirection('Down');
-            } else {
-                snake.changeDirection('Up');
-            }
-        }
-    }
-    
     nameElement.classList.remove('hidden');
     startSnakeGame();
 }
@@ -549,7 +500,7 @@ function updateBestScore(currentScore) {
 
         if (isVeryLastProject) {
             img.src = isHovered
-                ? './asset/images/icons/icons8-décrocher-le-téléphone-100.webp'
+                ? './assets/images/icons/icons8-décrocher-le-téléphone-100.webp'
                 : './assets/images/icons/icons8-téléphone-raccroché-100.webp';
         }
         
@@ -700,6 +651,56 @@ function updateBestScore(currentScore) {
         if (!sessionStorage.getItem('thirdSectionVisible')) {
             sessionStorage.setItem('thirdSectionVisible', 'false');
         }
+
+        ////////diaporama thirdcontactwmax420////////////////////////
+        const skillsContact = document.querySelector('.skills-contact');
+        const perspectiveSkills = document.querySelector('.perspective-skills');
+        const thirdSection = document.querySelector('.third-section');
+        let isAnimating = true;
+        let currentSlide = 0;
+      
+        function switchSlide() {
+            if (currentSlide === 0) {
+              skillsContact.classList.add('slide-out');
+              perspectiveSkills.classList.add('slide-in');
+              perspectiveSkills.style.display = 'block';
+              currentSlide = 1;
+            } else {
+              skillsContact.classList.remove('slide-out');
+              perspectiveSkills.classList.remove('slide-in');
+              setTimeout(() => {
+                perspectiveSkills.style.display = 'none';
+              }, 500); // Attendre la fin de la transition
+              currentSlide = 0;
+            }
+          }
+      
+        function startSlideshow() {
+          if (isAnimating && window.innerWidth <= 420) {
+            switchSlide();
+          }
+        }
+      
+        let slideshowInterval = setInterval(startSlideshow, 3000);
+      
+        thirdSection.addEventListener('touchstart', () => {
+          isAnimating = !isAnimating;
+          if (!isAnimating) {
+            clearInterval(slideshowInterval);
+          } else {
+            slideshowInterval = setInterval(startSlideshow, 3000);
+          }
+        });
+      
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 420) {
+            clearInterval(slideshowInterval);
+            skillsContact.classList.remove('slide-out');
+            perspectiveSkills.classList.remove('slide-in');
+          } else if (isAnimating) {
+            slideshowInterval = setInterval(startSlideshow, 3000);
+          }
+        });
     });
     
    ///////////////////////// Keyboard navigation for back button (echap)////////////////////////////
