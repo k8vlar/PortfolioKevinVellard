@@ -350,7 +350,7 @@ function showGameOver() {
         <img src='./assets/images/gameover.png' 
              alt='Game Over' 
              style='width: 100%; height: auto; cursor: pointer;'>
-             <p>scores: <span>${document.querySelector('.score span').innerText}</span></p>
+             <p>Scores: <span>${document.querySelector('.score span').innerText}</span></p>
              <p>Best Score: <span>${getBestScore()}</span></p>
     `;
     
@@ -524,6 +524,7 @@ function updateBestScore(currentScore) {
         });
     });
 
+    
     //////////////////////////// KEYBOARD FEATURES RADIOBUTTON///////////////////////////
 
     function handleKeyNavigation(event) {
@@ -834,6 +835,9 @@ cards.forEach((card) => {
         cardContent.style.filter = 'brightness(1)';
     });
 });
+
+
+
 
 
 ///////PARALLAX EFFECT////////
