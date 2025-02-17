@@ -227,6 +227,10 @@ h1, h2, .welcome, .demo, .name, .radio-container label {
     color: black;
     line-height: 2.5; 
 }
+
+
+
+
 /************************************** Snake animation **************************************/
 @import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
 
@@ -304,7 +308,18 @@ canvas {
 }
 
 
+/********gameover*********/
+.game-over{
+  position: absolute;
+  top: clamp(-80px , -50% , -20px);
+  left: 20px;
 
+
+
+}
+.game-over img{
+  width: clamp(100px , 50% , 200px);
+}
 
 
 
@@ -455,6 +470,9 @@ canvas {
 .projects-content-wrapper > *:nth-child(8) {
     grid-column: span 1;
 }
+
+
+/*************************** Projects ****************************************/
 .titleLogo{
   display: flex;
   align-items: center;
@@ -478,7 +496,7 @@ canvas {
 .project-detail-wrapper{
   background-color: #7F868C ;
   position: relative;
-  top: 14%;
+  top: 6%;
   
   height: 370px;
   width: 800px;
@@ -598,7 +616,27 @@ canvas {
   height: 40px !important;
   width: 100px !important;
 }
+/****************************project TERROTERRO**************************/
+.extern-link{
+  display: flex;
+  justify-content: center;
+  background-color: #d5d6d6;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.extern-link a{
+  display: flex;
+  color: black;
+  text-decoration: none;
+  gap: 10px;
+}
 
+
+
+
+/******************************project-pdf**************************/
 .project-detail .pdf-goback{
   background: none;
 }
@@ -811,8 +849,8 @@ canvas {
 /***************************SLIDER************************************/
 .slider-container {
   position: relative !important;
-  width: 400px; /* Largeur maximale du slider */
-  height: 700px; /* Hauteur maximale du slider */
+  width: 250px; /* Largeur maximale du slider */
+  height: 500px; /* Hauteur maximale du slider */
   margin: 20px auto;
   top: -60%;
   left: 38%;
@@ -834,24 +872,23 @@ canvas {
 
 /* Définir la largeur de chaque slide (image ou video-link) */
 .slider img,
-.slider .video-link {
-  width: 100%;
-  flex-shrink: 0;
-  opacity: 0;
-  transition: transform 0.5s ease;
-  object-fit: cover; /* Empêche les images de se déformer */
-  position: absolute;
-  top: 80px;
-  left: 5px;
-  padding: 10px; /* Ajout de padding pour chaque slide */
-  box-sizing: border-box; /* Ajout de box-sizing pour inclure le padding dans la largeur */
-  height: 100%; /* Assure que la slide prend toute la hauteur du slider */
-  object-fit: contain; 
-  z-index: 1;
+.slider .video-container {
+    width: 100%;
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    top: 50px;
+    left: 2.5px;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 100%;
+    object-fit: contain; 
+    z-index: 1;
 }
 .slider img.active,
-.slider .video-link.active {
-  opacity: 1;
+.slider .video-container.active {
+    opacity: 1;
 }
 
 .prev, .next {
@@ -871,11 +908,14 @@ canvas {
 .prev { left:29% !important; top: 14% !important;}
 .next { left:51% !important; top: 9% !important;}
 
-.video-link {
+.video-container iframe{
   position: relative;
   display: block;
-  width: 100%;
+  width: 75%;
   height: 100%;
+  margin: 0 auto;
+  border: none;
+
 }
 
 .play-icon {

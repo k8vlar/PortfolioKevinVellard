@@ -347,11 +347,13 @@ function initSnakeGame() {
 
 function showGameOver() {
     nameElement.innerHTML = `
+    <div class="game-over">
         <img src='./assets/images/gameover.png' 
              alt='Game Over' 
-             style='width: 100%; height: auto; cursor: pointer;'>
+             style='width: 80%; height: auto; cursor: pointer;'>
              <p>Scores: <span>${document.querySelector('.score span').innerText}</span></p>
              <p>Best Score: <span>${getBestScore()}</span></p>
+    </div>
     `;
     
     nameElement.classList.remove('hidden');
