@@ -19,7 +19,7 @@ body {
 html {
     scroll-behavior: smooth;
 }
-h1, h2, .welcome, .demo, .name, .radio-container label {
+h2, .welcome, .demo, .name, .radio-container label {
     font-family: 'RetroComputer', sans-serif;
 }
 
@@ -339,7 +339,7 @@ canvas {
   left: 20px;
   padding: 10px 20px;
   background-color: black;
-  color: white;
+  color: #5ace5a;
   border: none;
   cursor: pointer;
   z-index: 999;
@@ -521,7 +521,7 @@ canvas {
 
 .project-detail button {
     font-size: 1rem;
-    color: black;
+    color: #5ace5a;
     background-color: black;
     border: none;
     border-radius: 5px;
@@ -551,10 +551,10 @@ canvas {
     margin-left: 10px;
 }
 
-.project-detail button:hover {
+/* .project-detail button:hover {
     background-color: #5ace5a;
     color: black;
-}
+} */
 .project {
     position: relative;
     display: inline-block;
@@ -634,7 +634,20 @@ canvas {
   text-decoration: none;
   gap: 10px;
 }
+/********BACKWHEEL*******/
 
+#roueAvant {
+  animation: rotation 2s linear infinite !important;
+}
+
+@keyframes rotation {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
 
 
 
@@ -673,6 +686,75 @@ canvas {
 .pdf-goback img {
     width: 50px;
     height: 50px;
+}
+/*****************PAGE PDF ******/
+/* @keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.zoom-in {
+  animation: zoomIn 0.5s ease-out forwards;
+} */
+.project-detail-zoom {
+  background-image: url('assets/images/seventhComputerZoom.webp');
+  height: 100vh;
+  
+  font-family: 'Orbitron', sans-serif; 
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden; 
+  top: 0;
+  
+}
+#transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 2s ease;
+  z-index: 9999;
+}
+
+.zooming {
+  animation: zoomIn 2s ease-in forwards;
+}
+
+.zooming-out {
+  animation: zoomOut 2s ease-out forwards;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    transform: scale(2);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 
@@ -745,7 +827,7 @@ canvas {
   left: 20px;
   padding: 10px 20px;
   background-color: black;
-  color: white;
+  color: #5ace5a;
   border: none;
   cursor: pointer;
   z-index: 999;
@@ -841,11 +923,11 @@ canvas {
   background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 300px;
-  height: 450px;
+  width: 20vw;
+  height: 70vh;
   position: absolute;
-  top: 100px;
-  left: 1250px;
+  top: 10vh;
+  left: 75vw;
   z-index: 9;
   display: flex;
   flex-direction: column;
@@ -875,6 +957,9 @@ canvas {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.repertory a:hover {
+  filter: invert(50%);
 }
 
 /***************************SLIDER************************************/
@@ -960,7 +1045,40 @@ canvas {
 }
 
 
+/***************************traduction************************************/
+.language-selector {
+  margin-bottom: 20px;
+  display: flex; /* Pour aligner les drapeaux horizontalement */
+  position: absolute;
+  top: 250px;
+  right: 10px;
+}
 
+.flag-label {
+  display: inline-block; /* Pour pouvoir appliquer des marges et des paddings */
+  margin-right: 10px; /* Espace entre les drapeaux */
+  cursor: pointer; /* Changer le curseur pour indiquer que c'est cliquable */
+
+}
+
+.flag-label img {
+  width: 30px;
+  height: 20px;
+  border-radius: 3px; /* Adoucir les coins des drapeaux */
+  opacity: 0.3; /* Griser par défaut */
+  transition: opacity 0.3s ease; /* Transition pour un effet visuel plus doux */
+}
+
+/* Masquer les radio buttons par défaut */
+.language-selector input[type="radio"] {
+  display: none;
+}
+
+/* Style pour le drapeau sélectionné */
+.language-selector input[type="radio"]:checked + img {
+  opacity: 1; /* Rendre le drapeau sélectionné complètement opaque */
+  border: #555 solid 1px; /* Bordure grise */
+}
 
 
 /* Media query for mobile devices */

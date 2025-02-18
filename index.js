@@ -106,6 +106,24 @@ function handleOptionChange(event) {
     if (radioN.checked) {
         nameElement.classList.add('hidden');
         initSnakeGame();
+          
+        // Vérifier si l'appareil est mobile ou iPad
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            // Créer un champ de saisie temporaire
+            let tempInput = document.createElement('input');
+            tempInput.style.position = 'absolute';
+            tempInput.style.opacity = '0';
+            tempInput.style.height = '0';
+            document.body.appendChild(tempInput);
+
+            // Forcer le focus et afficher le clavier
+            tempInput.focus();
+
+            // Supprimer le champ après un court délai
+            setTimeout(() => {
+                document.body.removeChild(tempInput);
+            }, 100);
+        }
     } else if (radioO.checked) {
         showSecondSection();
     }
@@ -584,6 +602,43 @@ function updateBestScore(currentScore) {
         thirdSection.style.display = 'block';
         requestAnimationFrame(animateTransition);
     }
+
+//////////STARTZOOMTRANSITION//////
+console.log("Script chargé");
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM chargé");
+    const zoomLink = document.querySelector('.zoom-link');
+    if (zoomLink) {
+        zoomLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            startZoomTransition();
+        });
+    } else {
+        console.log("Lien zoom non trouvé");
+    }
+});
+
+function startZoomTransition() {
+    const overlay = document.getElementById('transition-overlay');
+    overlay.style.opacity = '1';
+    document.body.classList.add('zooming');
+    
+    setTimeout(() => {
+        window.location.href = './project-pdf.html';
+    }, 2000);
+}
+
+// Pour la page project-pdf.html
+if (document.querySelector('.zoom-container')) {
+    document.querySelector('.zoom-container').classList.add('zooming-out');
+    setTimeout(() => {
+        document.querySelector('.zoom-container').classList.remove('zooming-out');
+    }, 2000);
+}
+
+
+
+
 
 /////////////////////////////////////////////THIRD SECTION///////////////////////////////////////////////////
     ///////////////ANIMATION GO BACK TO SECOND SECTION//////////////////////////
