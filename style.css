@@ -645,7 +645,7 @@ canvas {
       transform: rotate(0deg);
   }
   to {
-      transform: rotate(360deg);
+      transform: rotate(-360deg);
   }
 }
 
@@ -833,10 +833,13 @@ canvas {
   z-index: 999;
   border-radius: 5px;
 }
-
+.slider-container-mobile{
+  display: none;
+}
 .third-back-button:hover {
   background-color: #555;
 }
+
 
 .Transversal-skills{
   
@@ -1024,6 +1027,10 @@ canvas {
 .prev { left:29% !important; top: 14% !important;}
 .next { left:51% !important; top: 9% !important;}
 
+.card3d{
+  perspective: none;
+}
+
 .video-container iframe{
   position: relative;
   display: block;
@@ -1043,7 +1050,54 @@ canvas {
   
   pointer-events: none;
 }
+/* Styles pour le slider */
+.slider-container-mobile {
+  display: none; /* Masqué par défaut */
+  overflow: hidden;
+  position: relative;
+  width: 80%;
+  /* Adjust as needed */
+}
 
+.slider-mobile {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  /* Transition fluide */
+  align-items: center; /* Ajout de align-items: stretch */
+
+}
+
+.skills-contact-mobile,
+.perspective-skills-mobile,
+.repertory-tel-mobile {
+  flex-shrink: 0;
+  
+  /* Chacun prend toute la largeur */
+  height: 300px; 
+  width: 400px; 
+}
+.prev-mobile,
+.next-mobile {
+  position: absolute;
+  top: 50%;
+  
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 9999;
+  /* S'assurer qu'ils sont au-dessus */
+}
+
+.prev-mobile {
+  left: 5px;
+}
+
+.next-mobile {
+  right: 5px;
+}
 
 /***************************traduction************************************/
 .language-selector {
@@ -1198,7 +1252,25 @@ align-items: center;
 .controls {
   display: flex;
 }
+
+.slider-container-mobile {
+  display: block;
 }
+
+.skills-contact {
+  display: none !important;
+}
+
+.perspective-skills {
+  display: none !important;
+}
+
+.repertory-tel {
+  display: none !important;
+}
+}
+
+
 /*****mobile horizontal*****/
 @media (max-width: 844px) and (orientation: landscape) {
   .welcome {
@@ -1462,4 +1534,5 @@ img.project-icon{
   .controls {
     display: flex;
 }
+
 }
