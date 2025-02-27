@@ -858,41 +858,97 @@ document.addEventListener('keydown', handleEscapeKey);
 
 
 ///////////////////////////////////// CARDS ////////////////////////////////
+// function map(val, minA, maxA, minB, maxB) {
+//     return minB + ((val - minA) * (maxB - minB)) / (maxA - minA);
+//   }
+  
+//   function Card3D(card, ev) {
+//     let cardContent = card.querySelector('.card-content');
+//     let cardRect = card.getBoundingClientRect();
+//     let width = cardRect.width;
+//     let height = cardRect.height;
+//     let mouseX = ev.offsetX;
+//     let mouseY = ev.offsetY;
+//     // Augmenter la plage de rotation pour un effet plus prononcé
+//     let rotateY = map(mouseX, 0, width, -35, 35);
+//     let rotateX = map(mouseY, 0, height, 35, -35);
+//     // Augmenter la plage de luminosité pour un effet plus contrasté
+//     let brightness = map(mouseY, 0, height, 1.7, 0.3);
+    
+//     cardContent.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+//     cardContent.style.filter = `brightness(${brightness})`;
+// }
+// var cards = document.querySelectorAll('.card3d');
+
+// cards.forEach((card) => {
+//     card.addEventListener('mousemove', (ev) => {
+//         Card3D(card, ev);
+//     });
+    
+//     card.addEventListener('mouseleave', (ev) => {
+//         let cardContent = card.querySelector('.card-content');
+        
+//         cardContent.style.transform = 'rotateX(0deg) rotateY(0deg)';
+//         cardContent.style.filter = 'brightness(1)';
+//     });
+// });
+
 function map(val, minA, maxA, minB, maxB) {
     return minB + ((val - minA) * (maxB - minB)) / (maxA - minA);
-  }
-  
-  function Card3D(card, ev) {
+}
+
+function Card3D(card, ev) {
     let cardContent = card.querySelector('.card-content');
     let cardRect = card.getBoundingClientRect();
     let width = cardRect.width;
     let height = cardRect.height;
     let mouseX = ev.offsetX;
     let mouseY = ev.offsetY;
-    // Augmenter la plage de rotation pour un effet plus prononcé
     let rotateY = map(mouseX, 0, width, -35, 35);
     let rotateX = map(mouseY, 0, height, 35, -35);
-    // Augmenter la plage de luminosité pour un effet plus contrasté
     let brightness = map(mouseY, 0, height, 1.7, 0.3);
     
     cardContent.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     cardContent.style.filter = `brightness(${brightness})`;
 }
+
+function resetCard(cardContent) {
+    cardContent.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    cardContent.style.filter = 'brightness(1)';
+}
+
+function animateCardOnTouch(card) {
+    let cardContent = card.querySelector('.card-content');
+    cardContent.style.transition = 'transform 2s, filter 2s';
+    cardContent.style.transform = 'rotateX(-360deg) rotateY(-360deg)';
+    cardContent.style.filter = 'brightness(1.5)';
+    
+    setTimeout(() => {
+        resetCard(cardContent);
+    }, 1000);
+}
+
 var cards = document.querySelectorAll('.card3d');
+var isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+var isSmallScreen = window.matchMedia("(max-width: 951px), (max-width: 1280px) and (orientation: landscape)").matches;
 
 cards.forEach((card) => {
-    card.addEventListener('mousemove', (ev) => {
-        Card3D(card, ev);
-    });
-    
-    card.addEventListener('mouseleave', (ev) => {
-        let cardContent = card.querySelector('.card-content');
+    if (!isTouchDevice && !isSmallScreen) {
+        // Comportement pour desktop
+        card.addEventListener('mousemove', (ev) => {
+            Card3D(card, ev);
+        });
         
-        cardContent.style.transform = 'rotateX(0deg) rotateY(0deg)';
-        cardContent.style.filter = 'brightness(1)';
-    });
+        card.addEventListener('mouseleave', (ev) => {
+            resetCard(card.querySelector('.card-content'));
+        });
+    } else {
+        // Comportement pour appareils tactiles ou petits écrans
+        card.addEventListener('click', () => {
+            animateCardOnTouch(card);
+        });
+    }
 });
-
 
 
 
