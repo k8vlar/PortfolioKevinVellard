@@ -1822,7 +1822,7 @@ img.project-icon{
 
 }
 /*****ipad horizontal*****/
-@media (max-width: 1280px) and (orientation: landscape) {
+@media (max-width: 1280px) and (orientation: portrait) {
   canvas{
     height: 280px;
     width: 280px;
