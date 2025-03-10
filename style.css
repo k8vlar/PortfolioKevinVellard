@@ -1579,24 +1579,24 @@ align-items: center;
 
 #upBtn {
   top: 10px;
-  left: -190%;
+  left: 10%;
 }
 
 #leftBtn {
   top: 50%;
-  left: -190%;
+  left: 10%;
   transform: translateY(-50%);
 }
 
 #rightBtn {
   top: 50%;
-  right: -190%;
+  right: 10%;
   transform: translateY(-50%);
 }
 
 #downBtn {
   bottom: 10px;
-  right: -190%;
+  right: 10%;
 }
 }
 /*****mobile vertical*****/
@@ -1822,7 +1822,7 @@ img.project-icon{
 
 }
 /*****ipad horizontal*****/
-@media (max-width: 1024px) and (orientation: landscape) {
+@media (max-width: 1280px) and (orientation: landscape) {
   canvas{
     height: 280px;
     width: 280px;
@@ -1863,24 +1863,24 @@ img.project-icon{
 }
 
 #upBtn {
-  top: 10px;
-  left: -190%;
+  bottom: 200px;
+  left: -60%;
 }
 
 #leftBtn {
-  top: 50%;
-  left: -190%;
-  transform: translateY(-50%);
+  bottom: 80px;
+  left: -60%;
+  
 }
 
 #rightBtn {
-  top: 50%;
-  right: -190%;
-  transform: translateY(-50%);
+  bottom: 200px;
+  right: -60%;
+  
 }
 
 #downBtn {
-  bottom: 10px;
-  right: -190%;
+  bottom: 80px;
+  right: -60%;
 }
 }

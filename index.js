@@ -367,7 +367,7 @@ function initSnakeGame() {
 
     document.getElementById('closeGame').addEventListener('click', gameOver);
     const directionalPad = document.getElementById('directionalPad');
-    if (window.innerWidth <= 1024) {
+    if (window.innerWidth <= 1280) {
         directionalPad.style.display = 'grid';
         document.getElementById('upBtn').addEventListener('click', () => snake.changeDirection('Up'));
         document.getElementById('leftBtn').addEventListener('click', () => snake.changeDirection('Left'));
