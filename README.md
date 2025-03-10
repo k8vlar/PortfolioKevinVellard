@@ -28,7 +28,7 @@ Ce portfolio personnel présente mon parcours professionnel de développeur full
 
 - HTML5
 - CSS3
-- JavaScript vanille
+- JavaScript vanilla
 - Canvas API
 
 ## Captures d'Écran
