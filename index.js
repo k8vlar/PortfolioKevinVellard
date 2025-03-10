@@ -157,6 +157,7 @@ function preloadImage(img) {
 
 function initSnakeGame() {
     nameElement.innerHTML = `
+    <div class="game-container">
         <main>
             <div class="score-container">
                 <div class="message">SnakeGame</div>
@@ -169,7 +170,14 @@ function initSnakeGame() {
                 <button id="closeGame">X</button>
             </div>
         </main>
-    `;
+        <div id="directionalPad" class="directional-pad">
+            <button id="upBtn">↑</button>
+            <button id="leftBtn">←</button>
+            <button id="rightBtn">→</button>
+            <button id="downBtn">↓</button>
+        </div>
+    </div>
+`;
 
     const canvas = document.querySelector('#screen');
     const ctx = canvas.getContext('2d');
@@ -358,7 +366,16 @@ function initSnakeGame() {
     });
 
     document.getElementById('closeGame').addEventListener('click', gameOver);
-
+    const directionalPad = document.getElementById('directionalPad');
+    if (window.innerWidth <= 1024) {
+        directionalPad.style.display = 'grid';
+        document.getElementById('upBtn').addEventListener('click', () => snake.changeDirection('Up'));
+        document.getElementById('leftBtn').addEventListener('click', () => snake.changeDirection('Left'));
+        document.getElementById('rightBtn').addEventListener('click', () => snake.changeDirection('Right'));
+        document.getElementById('downBtn').addEventListener('click', () => snake.changeDirection('Down'));
+    } else {
+        directionalPad.style.display = 'none';
+    }
     nameElement.classList.remove('hidden');
     startSnakeGame();
 }
