@@ -536,14 +536,14 @@ canvas {
   position: relative;
   top: 6%;
   
-  height: 370px;
-  width: 800px;
+  height: 48svh;
+  width: 48svw;
   padding: 20px;
   margin: auto;
   border-radius: 10px;
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); /* Adjust shadow to appear behind */
   overflow-y: auto; /* Ensure vertical scrolling */
- 
+  overflow-x: hidden;
 }
 .project-detail h1 {
     font-size: 2rem;
@@ -824,7 +824,7 @@ canvas {
 .logoProject{
   width: 200px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(2, auto);
   align-items: center;
   justify-items: center;
@@ -1822,7 +1822,7 @@ img.project-icon{
 
 }
 /*****ipad horizontal*****/
-@media (max-width: 1280px) and (orientation: portrait) {
+@media (max-width: 1280px) and (orientation: landscape) {
   canvas{
     height: 280px;
     width: 280px;
