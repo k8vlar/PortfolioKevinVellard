@@ -365,13 +365,17 @@ canvas {
   position: absolute;
   top: 20px;
   left: 20px;
-  padding: 10px 20px;
+  padding: calc(10*var(--res)) calc(25*var(--res));
   background-color: black;
   color: #5ace5a;
   border: none;
   cursor: pointer;
   z-index: 999;
   border-radius: 5px;
+  height: calc(50*var(--res));
+  width: calc(120*var(--res));
+  font-size: calc(19*var(--res));
+  font-weight:600;
 }
 
 .back-button:hover {
@@ -516,12 +520,13 @@ canvas {
 }
 
 /*************************** Projects ****************************************/
-.titleLogo{
+/* .titleLogo{
   display: flex;
   align-items: center;
   gap: 10px;
   width: 100%;
-}
+} */
+
 .project-detail {
     background-image: url('assets/images/seventhComputer.webp');
     height: 100vh;
@@ -558,7 +563,7 @@ canvas {
 }
 
 .project-detail p {
-    font-size: 1rem;
+    font-size: calc(30*var(--res));
     line-height: 1.5;
 }
 
@@ -621,6 +626,7 @@ canvas {
   flex-direction: column;
   align-items: center;
   text-decoration: none;
+  
 }
 
 .project-icon {
@@ -828,7 +834,7 @@ canvas {
     padding: 5px;
 }
 .logoProject{
-  width: 200px;
+  width: calc(200*var(--res));
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(2, auto);
@@ -881,13 +887,18 @@ canvas {
   position: absolute;
   top: 20px;
   left: 20px;
-  padding: 10px 20px;
   background-color: black;
   color: #5ace5a;
   border: none;
   cursor: pointer;
   z-index: 999;
   border-radius: 5px;
+   padding: calc(8*var(--res)) calc(20*var(--res));
+
+  height: calc(50*var(--res));
+  width: calc(150*var(--res));
+  font-size: calc(22*var(--res)) !important;
+  font-weight:600;
 }
 .slider-container-mobile{
   display: none;
@@ -927,15 +938,15 @@ canvas {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   position: relative;
-  left: 30%;
+  height: calc(260*var(--res)) !important;
+  width: calc(400*var(--res)) !important;
   z-index: 3;
   grid-gap: 5px;
   justify-content: center;
   align-items: center;
   justify-items: center;
-  gap: 5px;
-  height: calc(200*var(--res));
-  width: calc(200*var(--res));
+  
+  
 }
 .transversal-skills-content-wrapper img{
   height: 60px;
@@ -945,10 +956,9 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   position: relative;
   flex-direction: column;
-  top: 1vh;
+  top: 4.5vh;
   left: 2%;
   overflow: hidden;
   z-index: 1;
@@ -968,6 +978,7 @@ canvas {
     1px -1px 0 black,
     -1px 1px 0 black,
     1px 1px 0 black;
+    font-size: calc(28*var(--res)) !important;
 }
 .skills-content-wrapper{
   display: grid;
@@ -975,7 +986,74 @@ canvas {
   grid-template-rows: repeat(3, 1fr);
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  align-content: center;
+  align-self: center;
+  
+  height: calc(350*var(--res)) !important;
+  width: calc(700*var(--res)) !important;
+}
+/* .card-content{
+  height: calc(80*var(--res));
+  width: calc(150*var(--res));
+} */
+.card-content img{
+  height: calc(60*var(--res));
+  width: calc(60*var(--res));
+}
+.card3d{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.repertory-wrapper{
+  height:calc(550*var(--res));
+  width: calc(300*var(--res));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.repertory-wrapper .repertory{
+  height: calc(110*var(--res));
+  width: calc(100*var(--res));
+}
+.repertory-wrapper .repertory a{
+ font-size: calc(8*var(--res));
+ padding: 5px 0px;
+}
+.repertory-wrapper .repertory img{
+ height: calc(50*var(--res)) !important;
+ width: calc(50*var(--res)) !important;
+}
+.skills-contact > h2 {
+  font-size: calc(40*var(--res));
+  
+}
+.Transversal-skills > h2 {
+  font-size: calc(30*var(--res));
+  margin-bottom: 20px;
+}
+.perspective-skills {
+top: 31%;
+left: 15%;
+}
+
+.skills-content-wrapper > .card3d > .card-content{
+  height: calc(120*var(--res)) !important;
+  width: calc(120*var(--res)) !important;
+}
+.skills-content-wrapper .card-content > img{
+  height: calc(80*var(--res)) !important;
+  width: calc(80*var(--res)) !important;
+}
+.transversal-skills-content-wrapper .card3d > .card-content{
+  height: calc(100*var(--res)) !important;
+  width:calc(100*var(--res)) !important;
+}
+.transversal-skills-content-wrapper .card3d > .card-content img{
+  height: calc(60*var(--res)) !important;
+  width:calc(60*var(--res)) !important;
 }
 
 /*************************************************CARDS**********************************/
@@ -1041,8 +1119,8 @@ canvas {
 /***************************SLIDER************************************/
 .slider-container {
   position: relative !important;
-  width: 250px; /* Largeur maximale du slider */
-  height: 500px; /* Hauteur maximale du slider */
+  width: calc(436.35*var(--res)); /* Largeur maximale du slider */
+  height: calc(812.2*var(--res)); /* Hauteur maximale du slider */
   margin: 20px auto;
   top: -60%;
   left: 38%;
@@ -1070,8 +1148,8 @@ canvas {
     opacity: 0;
     transition: opacity 0.5s ease;
     position: absolute;
-    top: 50px;
-    left: 2.5px;
+    top: calc(75*var(--res));
+    left: calc(3*var(--res));
     padding: 10px;
     box-sizing: border-box;
     height: 100%;
@@ -1091,14 +1169,21 @@ canvas {
   border: none;
   padding: 10px;
   cursor: pointer;
-  height: 5%;
-  width: 20%;
+  height: calc(55*var(--res));
+  width: calc(45*var(--res));
   z-index: 4;
   
 }
+.slider-control{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: calc(650*var(--res));
+  left:calc(168*var(--res));
 
-.prev { left:29% !important; top: 14% !important;}
-.next { left:51% !important; top: 9% !important;}
+}
+.prev { left:-5% !important}
+.next { left:5% !important}
 
 .card3d{
   perspective: none;
@@ -1124,61 +1209,20 @@ canvas {
   pointer-events: none;
 }
 
-/* .slider-container-mobile {
-  display: none; 
-  overflow: hidden;
-  position: relative;
-  width: 80%;
- 
-}
-
-.slider-mobile {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-
-  align-items: center; 
-
-}
-
-.skills-contact-mobile,
-.perspective-skills-mobile,
-.repertory-tel-mobile {
-  flex-shrink: 0;
-  height: 300px; 
-  width: 400px; 
-}
-.prev-mobile,
-.next-mobile {
-  position: absolute;
-  top: 50%;
-  
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 9999;
-  
-}
-
-.prev-mobile {
-  left: 5px;
-}
-
-.next-mobile {
-  right: 5px;
-} */
 
 /***************************traduction************************************/
 .language-selector {
-  margin-bottom: 20px;
+  
   display: flex; /* Pour aligner les drapeaux horizontalement */
   position: absolute;
-  top: 250px;
+  
   right: 10px;
 }
-
+.img-title-terroterro{
+  width:calc(1200*var(--res)) !important;
+  height: calc(120*var(--res)) !important;
+  margin-left: calc(-162*var(--res)) !important;
+}
 .flag-label {
   display: inline-block; /* Pour pouvoir appliquer des marges et des paddings */
   margin-right: 10px; /* Espace entre les drapeaux */
@@ -1187,8 +1231,8 @@ canvas {
 }
 
 .flag-label img {
-  width: 30px;
-  height: 20px;
+  width:  calc(60*var(--res));
+  height:  calc(40*var(--res));
   border-radius: 3px; /* Adoucir les coins des drapeaux */
   opacity: 0.3; /* Griser par défaut */
   transition: opacity 0.3s ease; /* Transition pour un effet visuel plus doux */
@@ -1614,28 +1658,88 @@ align-items: center;
   height: calc(60*var(--res));
   width: calc(60*var(--res));
 }
+.repertory-wrapper{
+  height:calc(550*var(--res));
+  width: calc(300*var(--res));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.repertory-wrapper .repertory{
+  height: calc(110*var(--res));
+  width: calc(100*var(--res));
+}
+.repertory-wrapper .repertory a{
+ font-size: calc(8*var(--res));
+ padding: 5px 0px;
+}
+.repertory-wrapper .repertory img{
+ height: calc(50*var(--res)) !important;
+ width: calc(50*var(--res)) !important;
+}
 .skills-contact > h2 {
   font-size: calc(40*var(--res));
+  
 }
 .Transversal-skills > h2 {
   font-size: calc(30*var(--res));
-  margin-bottom: 20px;
+  
 }
 .perspective-skills {
-top: 28%;
-left: 15%;
+top: 32%;
+left: 13%;
 }
 .skills-content-wrapper {
   height: calc(400*var(--res)) !important;
   width: calc(350*var(--res)) !important;
 }
-.skills-content-wrappe > .card3d > .card-content{
-  height: calc(220*var(--res)) !important;
-  width: calc(400*var(--res)) !important;
+.skills-content-wrapper > .card3d > .card-content{
+  height: calc(60*var(--res)) !important;
+  width: calc(200*var(--res)) !important;
 }
 .skills-content-wrapper > .card-content > img{
   height: calc(200*var(--res)) !important;
   width: calc(200*var(--res)) !important;
+}
+.transversal-skills-content-wrapper .card3d > .card-content{
+  height: calc(70*var(--res)) !important;
+  width:calc(100*var(--res)) !important;
+}
+.transversal-skills-content-wrapper .card3d > .card-content img{
+  height: calc(40*var(--res)) !important;
+  width:calc(40*var(--res)) !important;
+}
+/******PROJET TERROTERRO*****/
+/* .titleTerroterroSvg{
+  height: calc(70pt*var(--res));
+  width: calc(70pt*var(--res));
+} */
+
+
+.project-detail-wrapper .titleLogo .card3d > .card-content {
+  max-height: calc(150*var(--res)) !important;
+  width: calc(300*var(--res)) !important;
+  margin-left: calc(250*var(--res)) !important;
+}
+.logoProject .card3d > .card-content{
+  max-height: calc(200*var(--res)) !important;
+}
+.logoProject .card3d .card-content > .logoName{
+  width: calc(200*var(--res)) !important;
+  height: calc(200*var(--res)) !important;
+}
+.logoProject .card3d .card-content > img{
+  width: calc(200*var(--res)) !important;
+  height: calc(200*var(--res)) !important;
+}
+.logoProject .card3d .card-content > svg{
+  width: calc(200*var(--res)) !important;
+  height: calc(200*var(--res)) !important;
+}
+svg{
+  width: 100%;
+  height: 100%;
 }
 }
 /*****mobile vertical*****/
