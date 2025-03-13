@@ -908,26 +908,21 @@ canvas {
 }
 
 
-.Transversal-skills{
-  
-  transform:  rotateX(-4deg) skew(1.8deg,1.8deg)
-   /* rotateY(20deg) rotateZ(2.2deg); */
-   perspective(1000px);
+.Transversal-skills {
+  transform: rotateY(18deg) rotateX(6deg) rotateZ(1deg);
   transform-style: preserve-3d;
-
-
+  perspective: 900px;
 }
-.perspective-skills{
-  position:absolute;
+
+.perspective-skills {
+  position: absolute;
   z-index: 3;
   top: 30%;
-  left: 13%;
-  -webkit-perspective: 1000px;
-  -moz-perspective: 1000px;
+  left: 14.5%;
   perspective: 1000px;
-  perspective-origin:left;
-  
+  perspective-origin: 0% 50%;
 }
+
 
 .perspective-skills h2{
   text-align: center;
@@ -939,7 +934,7 @@ canvas {
   grid-template-rows: repeat(3, 1fr);
   position: relative;
   height: calc(260*var(--res)) !important;
-  width: calc(400*var(--res)) !important;
+  width: calc(450*var(--res)) !important;
   z-index: 3;
   grid-gap: 5px;
   justify-content: center;
@@ -948,10 +943,10 @@ canvas {
   
   
 }
-.transversal-skills-content-wrapper img{
+/* .transversal-skills-content-wrapper img{
   height: 60px;
   
-}
+} */
 .skills-contact{
   display: flex;
   justify-content: center;
@@ -988,8 +983,8 @@ canvas {
   align-items: center;
   align-content: center;
   align-self: center;
-  
-  height: calc(350*var(--res)) !important;
+  grid-gap:calc(10*var(--res)) !important;
+  height: calc(420*var(--res)) !important;
   width: calc(700*var(--res)) !important;
 }
 /* .card-content{
@@ -1000,6 +995,7 @@ canvas {
   height: calc(60*var(--res));
   width: calc(60*var(--res));
 }
+
 .card3d{
   display: flex;
   flex-direction: column;
@@ -1034,13 +1030,13 @@ canvas {
   font-size: calc(30*var(--res));
   margin-bottom: 20px;
 }
-.perspective-skills {
+/* .perspective-skills {
 top: 31%;
 left: 15%;
-}
+} */
 
 .skills-content-wrapper > .card3d > .card-content{
-  height: calc(120*var(--res)) !important;
+  height: calc(150*var(--res)) !important;
   width: calc(120*var(--res)) !important;
 }
 .skills-content-wrapper .card-content > img{
@@ -1686,15 +1682,15 @@ align-items: center;
   font-size: calc(30*var(--res));
   
 }
-.perspective-skills {
+/* .perspective-skills {
 top: 32%;
 left: 13%;
-}
-.skills-content-wrapper {
+} */
+/* .skills-content-wrapper {
   height: calc(400*var(--res)) !important;
   width: calc(350*var(--res)) !important;
-}
-.skills-content-wrapper > .card3d > .card-content{
+} */
+/* .skills-content-wrapper > .card3d > .card-content{
   height: calc(60*var(--res)) !important;
   width: calc(200*var(--res)) !important;
 }
@@ -1709,7 +1705,7 @@ left: 13%;
 .transversal-skills-content-wrapper .card3d > .card-content img{
   height: calc(40*var(--res)) !important;
   width:calc(40*var(--res)) !important;
-}
+} */
 /******PROJET TERROTERRO*****/
 /* .titleTerroterroSvg{
   height: calc(70pt*var(--res));
