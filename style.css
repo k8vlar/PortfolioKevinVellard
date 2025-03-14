@@ -72,11 +72,11 @@ h2, .welcome, .demo, .name, .radio-container label {
     transition: opacity 1s ease-in-out;
 }
 .demo {
-    font-size: 1.5rem;
+    font-size: calc(28*var(--res));
     text-align: center;
     color: #5ace5a ;
     background-color:black;
-    padding: 10px;
+    padding: calc(10*var(--res));
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin: auto;
@@ -84,7 +84,7 @@ h2, .welcome, .demo, .name, .radio-container label {
 
 }
 .name{
-    font-size: 0.7rem;
+    font-size: calc(10*var(--res));
     color: black;
     display: flex;
     flex-direction: column;
@@ -112,8 +112,8 @@ h2, .welcome, .demo, .name, .radio-container label {
   
   .loading span {
     display: inline-block;
-    width: 7px;
-    height: 20px;
+    width: calc(10*var(--res));
+    height: calc(27*var(--res));
     background-color: #5ace5a;
     opacity: 0;
   }
@@ -204,7 +204,7 @@ h2, .welcome, .demo, .name, .radio-container label {
 }
 
 .radio-container label {
-    font-size: calc(30*var(--res));
+    font-size: calc(27*var(--res));
     color: black;
     margin: 0 10px;
     cursor: pointer;
@@ -309,8 +309,8 @@ main {
 canvas {
     display: block;
     border: 1px solid black;
-    height: calc(380*var(--res));
-    width: calc(380*var(--res));
+    height: calc(360*var(--res));
+    width: calc(360*var(--res));
     margin-top: calc(5*var(--res));;
 }
 
@@ -345,14 +345,14 @@ canvas {
 /********gameover*********/
 .game-over{
   position: absolute;
-  top: clamp(-80px , -50% , -20px);
-  left: 20px;
-
-
+  top: 50%;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
 
 }
 .game-over img{
-  width: clamp(100px , 50% , 200px);
+  width: calc(450*var(--res)) !important;
+
 }
 
 
@@ -464,7 +464,7 @@ canvas {
     justify-content: center;
     align-items: center;
     position: absolute; 
-    top: 18%; 
+    top: 20svh; 
     left: 50%; 
     transform: translate(-50%, -50%); 
     width:clamp(180px,calc(380*var(--res)), 380px);
@@ -551,7 +551,7 @@ canvas {
 .project-detail-wrapper{
   background-color: #7F868C ;
   position: relative;
-  top: 6svh;
+  top: 10svh;
   
   height: 48svh;
   width: 48svw;
@@ -922,8 +922,8 @@ canvas {
 .perspective-skills {
   position: absolute;
   z-index: 3;
-  top: 30svh;
-  left: 14.5svw;
+  top: 32svh;
+  left: 10.5svw;
   perspective: 1000px;
   perspective-origin: 0% 50%;
 }
@@ -938,8 +938,8 @@ canvas {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   position: relative;
-  height: calc(200*var(--res)) !important;
-  width: calc(430*var(--res)) !important;
+  height: 27svh !important;
+  width: 20svw !important;
   z-index: 3;
   grid-gap: 5px;
   justify-content: center;
@@ -958,7 +958,7 @@ canvas {
   align-items: center;
   position: relative;
   flex-direction: column;
-  top: 2svh;
+  top: 10svh;
   left: 2svw;
   overflow: hidden;
   z-index: 1;
@@ -970,6 +970,7 @@ canvas {
   1px -1px 0 black,
   -1px 1px 0 black,
   1px 1px 0 black;
+  
 }
 .Transversal-skills > h2{
   color:#5ace5a;
@@ -988,9 +989,10 @@ canvas {
   align-items: center;
   align-content: center;
   align-self: center;
-  grid-gap:calc(10*var(--res)) !important;
-  height: calc(420*var(--res)) !important;
-  width: calc(700*var(--res)) !important;
+  grid-gap:calc(7*var(--res)) !important;
+  height: 37svh !important;
+  width: 30svw !important;
+  padding-top: calc(10*var(--res));
 }
 /* .card-content{
   height: calc(80*var(--res));
@@ -1041,12 +1043,12 @@ left: 15%;
 } */
 
 .skills-content-wrapper > .card3d > .card-content{
-  height: calc(150*var(--res)) !important;
+  height: calc(135*var(--res)) !important;
   width: calc(120*var(--res)) !important;
 }
 .skills-content-wrapper .card-content > img{
-  height: calc(80*var(--res)) !important;
-  width: calc(80*var(--res)) !important;
+  height: calc(60*var(--res)) !important;
+  width: calc(60*var(--res)) !important;
 }
 .transversal-skills-content-wrapper .card3d > .card-content{
   height: calc(100*var(--res)) !important;
@@ -1077,7 +1079,7 @@ left: 15%;
 /************************repertory-tel***************************/
 .repertory-tel{
   background-image: url('assets/images/telephone/contacttelthirdsection.webp');
-  background-size:cover;
+  background-size:contain;
   background-position: center;
   background-repeat: no-repeat;
   width: 20vw;
@@ -1284,7 +1286,7 @@ left: 15%;
     transition: opacity 1s ease-in-out;
 }
 .demo {
-    font-size: 0.7rem;
+    font-size: calc(25*var(--res));
     text-align: center;
     color: #5ace5a ;
     background-color:black;
@@ -1322,11 +1324,15 @@ left: 44vw;
 }
 .game-over {
   width: 70% !important;
-  left: 15% !important;
+ 
 }
 main{
   top: 10vh;
   left: 2.5vw;
+}
+.canvas{
+  height: calc(150*var(--res)) !important;
+  width: calc(150*var(--res)) !important;
 }
 .best-score{
   font-size: 0.6rem;
@@ -1770,7 +1776,7 @@ left: 13%;
 }
 main{
   top: 10vh;
-  left: 2.5vw;
+  left: -0.2vw;
 }
 
 #closeGame {
@@ -1778,32 +1784,35 @@ main{
   right: 20px;
   
 }
-
+.canvas{
+  height: 80px !important;
+  width: 80px !important;
+}
 .score-container {
   position: absolute; 
-  top: -79px; 
-  left: -5px; 
-  width: 150px;
+  top: -3px; 
+  left: 5px; 
+  width: 100px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   font-size: 0.4rem;
   }
-  /* .best-score{
-    font-size: 0.6rem;
+  .best-score{
+    font-size: 0.45rem;
   }
   .score{
-    font-size: 0.6rem;
+    font-size: 0.45rem;
   }
   .message{
-    font-size: 0.6rem;
-  } */
+    font-size: 0.45rem;
+  }
   .controls {
     display: flex;
 }
 /******SECOND SECTION*****/
 .projects{
-  top: 20%;
+  top: 9svh !important;
   left: 50%;
   width: 160px;
   height: 340px !important; 
@@ -1888,34 +1897,48 @@ img.project-icon{
 }
 
 #upBtn {
-  top: 100px;
-  left: 10%;
+  top: 50px;
+  left: 5%;
 }
 
 #leftBtn {
   
-  left: 10%;
-  top: 50%;
+  right: 5%;
+  top: 150px;
 }
 
 #rightBtn {
-  top: 50%;
-  right: 5%;
+  top: 150px;
+  left: 5%;
   
 }
 
 #downBtn {
-  top: 100px;
+  top: 50px;
   right: 5%;
 }
+/* .titleLogo .card3d .card-content {
+  padding-left: 221px;
+} */
+/* .titleLogo .card3d .card-content > img{
+  height: 30px !important;
+  width: 100px !important;
+} */
+/* .img-title-terroterro{
+  margin-right: 50px;
+  height: 30px !important ;
+  width: 30px !important ;
+} */
 /***************************THIRD SECTION************************************/
-/* .third-section {
+.third-section {
 
   display: flex !important;
   flex-direction: column !important;
   justify-content: center;
 }
-
+.third-section-mobile{
+  align-items: center;
+}
 .skills-contact,
 .perspective-skills {
   display: block !important;
@@ -1923,16 +1946,21 @@ img.project-icon{
   height: 80%;
   
  
-} */
+}
 
-/* 
+
 .skills-contact {
   transform: translateX(0);
   
 }
-
+.skills-contact > h2{
+  margin-bottom: -30px;
+}
+.Transversal-skills > h2{
+  margin-bottom: 30px;
+}
 .perspective-skills {
-  transform: translateX(100%);
+  
   display: none;
 }
 
@@ -1966,7 +1994,7 @@ img.project-icon{
 
 .card-content p{
   font-size: 0.3rem;
-} */
+}
 
 }
 /*****ipad horizontal*****/

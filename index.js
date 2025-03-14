@@ -385,7 +385,7 @@ function showGameOver() {
     <div class="game-over">
         <img src='./assets/images/gameover.png' 
              alt='Game Over' 
-             style='width: 80%; height: auto; cursor: pointer;'>
+             style='width: 100%; height: 100%; cursor: pointer;'>
              <p>Scores: <span>${document.querySelector('.score span').innerText}</span></p>
              <p>Best Score: <span>${getBestScore()}</span></p>
     </div>
