@@ -204,7 +204,7 @@ h2, .welcome, .demo, .name, .radio-container label {
 }
 
 .radio-container label {
-    font-size: 1rem;
+    font-size: calc(30*var(--res));
     color: black;
     margin: 0 10px;
     cursor: pointer;
@@ -226,7 +226,7 @@ h2, .welcome, .demo, .name, .radio-container label {
     font-family: 'RetroComputer', sans-serif;
     font-size: calc(22 * var(--res));
     color: black;
-    line-height: 2.5; 
+    line-height: calc(50*var(--res)); 
 }
 
 
@@ -242,8 +242,8 @@ main {
     justify-content: center;
     align-items: center;
     position: relative;
-    top: -45px;
-    left: 8px;
+    top: calc(-60*var(--res)) !important;
+    left: calc(12*var(--res));
     
     font-size: 1em;
     font-family: "Press Start 2P";
@@ -251,17 +251,17 @@ main {
 
 .score-container {
   position: absolute; 
-  top: -6px; 
-  left: 28px; 
-  width: 300px;
+  top: calc(-2*var(--res)); 
+  
+  width: calc(380*var(--res));
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.score {
-  font-size: 1.5em;
-}
+/* .score {
+  font-size: calc(1*var(--res)) !important;
+} */
 
 .screen-container {
     position: relative;
@@ -293,7 +293,13 @@ main {
 }
 
 .message {
-  font-size: 1.5em;
+  font-size: calc(20*var(--res));
+}
+.best-score{
+  font-size: calc(20*var(--res));
+}
+.score{
+  font-size: calc(20*var(--res));
 }
 
 .message.hidden {
@@ -303,9 +309,9 @@ main {
 canvas {
     display: block;
     border: 1px solid black;
-    height: 280px;
-    width: 280px;
-    margin-top: 5px;
+    height: calc(380*var(--res));
+    width: calc(380*var(--res));
+    margin-top: calc(5*var(--res));;
 }
 
 .game-container {
@@ -545,7 +551,7 @@ canvas {
 .project-detail-wrapper{
   background-color: #7F868C ;
   position: relative;
-  top: 6%;
+  top: 6svh;
   
   height: 48svh;
   width: 48svw;
@@ -893,8 +899,7 @@ canvas {
   cursor: pointer;
   z-index: 999;
   border-radius: 5px;
-   padding: calc(8*var(--res)) calc(20*var(--res));
-
+  padding: calc(8*var(--res)) calc(20*var(--res));
   height: calc(50*var(--res));
   width: calc(150*var(--res));
   font-size: calc(22*var(--res)) !important;
@@ -909,7 +914,7 @@ canvas {
 
 
 .Transversal-skills {
-  transform: rotateY(18deg) rotateX(6deg) rotateZ(1deg);
+  transform: rotateY(18deg) rotateX(2deg) rotateZ(1deg);
   transform-style: preserve-3d;
   perspective: 900px;
 }
@@ -917,8 +922,8 @@ canvas {
 .perspective-skills {
   position: absolute;
   z-index: 3;
-  top: 30%;
-  left: 14.5%;
+  top: 30svh;
+  left: 14.5svw;
   perspective: 1000px;
   perspective-origin: 0% 50%;
 }
@@ -933,8 +938,8 @@ canvas {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   position: relative;
-  height: calc(260*var(--res)) !important;
-  width: calc(450*var(--res)) !important;
+  height: calc(200*var(--res)) !important;
+  width: calc(430*var(--res)) !important;
   z-index: 3;
   grid-gap: 5px;
   justify-content: center;
@@ -953,8 +958,8 @@ canvas {
   align-items: center;
   position: relative;
   flex-direction: column;
-  top: 4.5vh;
-  left: 2%;
+  top: 2svh;
+  left: 2svw;
   overflow: hidden;
   z-index: 1;
 }
@@ -1028,7 +1033,7 @@ canvas {
 }
 .Transversal-skills > h2 {
   font-size: calc(30*var(--res));
-  margin-bottom: 20px;
+  margin-bottom: calc(30*var(--res));
 }
 /* .perspective-skills {
 top: 31%;
@@ -1066,7 +1071,9 @@ left: 15%;
   align-items: center;
 
 }
-
+.parent-img-title-terroterro{
+  margin-left: calc(160*var(--res));
+}
 /************************repertory-tel***************************/
 .repertory-tel{
   background-image: url('assets/images/telephone/contacttelthirdsection.webp');
@@ -1333,13 +1340,13 @@ main{
   width: 35%;
   margin: auto;
 }
-.radio-container label {
+/* .radio-container label {
   font-size: 0.6rem !important;
   color: black;
   margin: 0 10px;
   cursor: pointer;
 
-}
+} */
 
 
 .second-section{
@@ -1463,16 +1470,16 @@ text-align: center;
   background-image: none;
 }
 
-canvas {
+/* canvas {
   display: block;
   border: 1px solid black;
   height: 140px !important; 
   width: 140px !important;
   margin-top: 5px;
-}
+} */
 
 
-main {
+/* main {
   
   display: flex;
   flex-direction: column;
@@ -1484,7 +1491,7 @@ main {
   
   font-size: 1em;
   font-family: "Press Start 2P";
-}
+} */
 
 /* .score-container {
 position: absolute; 
@@ -1496,16 +1503,16 @@ justify-content: space-between;
 align-items: center;
 } */
 
-.score-container {
+/* .score-container {
   position: absolute; 
-  top: -79px; 
+  top: calc(-2*var(--res)); 
   left: 0px; 
   width: 150px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.4rem;
-  }
+  } */
 /* #closeGame {
   top: 160px !important;
   right: 75px;
@@ -1542,7 +1549,7 @@ align-items: center;
 
 /*****mobile horizontal*****/
 @media (max-width: 844px) and (orientation: landscape) {
-  .welcome {
+  /* .welcome {
     font-family: 'RetroComputer', sans-serif;
     color: black;
     line-height: 1.5; 
@@ -1557,25 +1564,25 @@ align-items: center;
     left: 80px;
     width: 150px;
 
-}
-.content-wrapper {
+} */
+/* .content-wrapper {
   top:35%;
   width: 300px;
-}
-.radio-container label {
+} */
+/* .radio-container label {
   font-size: 0.7rem;
   color: black;
   margin: 0 10px;
   cursor: pointer;
-}
+} */
 
-.score-container{
+/* .score-container{
   position: absolute;
   top: -6px;
   left: 30px !important;
   width: 145px;
   justify-content: space-evenly;
-}
+} */
 .projects{
   top: 13% !important;
   left: 51%;
@@ -1623,36 +1630,38 @@ align-items: center;
 }
 
 #upBtn {
-  top: 10px;
-  left: 10%;
+  bottom: calc(80*var(--res)) !important;
+  left: -15svw !important;
 }
 
 #leftBtn {
-  top: 50%;
-  left: 10%;
-  transform: translateY(-50%);
+  bottom: calc(80*var(--res)) !important;
+  right: -15svw !important;
+  
 }
 
 #rightBtn {
-  top: 50%;
-  right: 10%;
-  transform: translateY(-50%);
+  bottom: calc(320*var(--res)) !important;
+  left: -15svw !important;
+  
 }
 
 #downBtn {
-  bottom: 10px;
-  right: 10%;
+  bottom: calc(320*var(--res)) !important;
+  right: -15svw !important;
 }
-
 /******section third ****/
 
-.card-content{
+/* .card-content{
   height: calc(80*var(--res));
   width: calc(150*var(--res));
 }
 .card-content img{
   height: calc(60*var(--res));
   width: calc(60*var(--res));
+} */
+.parent-img-title-terroterro{
+  margin-left: calc(160*var(--res));
 }
 .repertory-wrapper{
   height:calc(550*var(--res));
@@ -1713,30 +1722,30 @@ left: 13%;
 } */
 
 
-.project-detail-wrapper .titleLogo .card3d > .card-content {
-  max-height: calc(150*var(--res)) !important;
-  width: calc(300*var(--res)) !important;
+/* .project-detail-wrapper .titleLogo .card3d > .card-content {
+  max-height: calc(400*var(--res)) !important;
+  width: calc(400*var(--res)) !important;
   margin-left: calc(250*var(--res)) !important;
-}
-.logoProject .card3d > .card-content{
+} */
+/* .logoProject .card3d > .card-content{
   max-height: calc(200*var(--res)) !important;
-}
-.logoProject .card3d .card-content > .logoName{
+} */
+/* .logoProject .card3d .card-content > .logoName{
   width: calc(200*var(--res)) !important;
   height: calc(200*var(--res)) !important;
-}
-.logoProject .card3d .card-content > img{
+} */
+/* .logoProject .card3d .card-content > img{
   width: calc(200*var(--res)) !important;
   height: calc(200*var(--res)) !important;
+} */
+/* .logoProject .card3d .card-content svg{
+  width: calc(400*var(--res)) !important;
+  height: calc(400*var(--res)) !important;
 }
-.logoProject .card3d .card-content > svg{
-  width: calc(200*var(--res)) !important;
-  height: calc(200*var(--res)) !important;
-}
-svg{
-  width: 100%;
-  height: 100%;
-}
+.card-content .svg{
+  height: calc(220*var(--res)) !important; 
+  width:calc(220*var(--res)) !important;
+} */
 }
 /*****mobile vertical*****/
 @media (max-width: 420px) and (orientation: portrait) {
@@ -1780,7 +1789,7 @@ main{
   align-items: center;
   font-size: 0.4rem;
   }
-  .best-score{
+  /* .best-score{
     font-size: 0.6rem;
   }
   .score{
@@ -1788,7 +1797,7 @@ main{
   }
   .message{
     font-size: 0.6rem;
-  }
+  } */
   .controls {
     display: flex;
 }
@@ -1810,10 +1819,10 @@ main{
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(8, auto);
-    grid-auto-flow: dense;
-    justify-content: center;
-    align-items: center;
-    height: 150px;
+  grid-auto-flow: dense;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
 }
 .projects-content-wrapper > *:nth-child(1) {
   grid-column: span 1;
@@ -1962,14 +1971,14 @@ img.project-icon{
 }
 /*****ipad horizontal*****/
 @media (max-width: 1280px) and (orientation: landscape) {
-  canvas{
+  /* canvas{
     height: 280px;
     width: 280px;
 
-  }
-  .score-container{
+  } */
+  /* .score-container{
     top:-6px
-  }
+  } */
   .controls {
     display: flex;
 }
@@ -1995,6 +2004,8 @@ img.project-icon{
   position: absolute;
   width: 60px;
   height: 60px;
+  padding: 10px;
+  margin: 10px;
   background-color: rgba(240, 240, 240, 0.7);
   border: 1px solid #ccc;
   border-radius: 50%;
@@ -2002,24 +2013,24 @@ img.project-icon{
 }
 
 #upBtn {
-  bottom: 200px;
+  bottom: calc(100*var(--res));
   left: -60%;
 }
 
 #leftBtn {
-  bottom: 80px;
-  left: -60%;
-  
-}
-
-#rightBtn {
-  bottom: 200px;
+  bottom: calc(100*var(--res));
   right: -60%;
   
 }
 
+#rightBtn {
+  bottom: calc(300*var(--res));
+  left: -60%;
+  
+}
+
 #downBtn {
-  bottom: 80px;
+  bottom: calc(300*var(--res));
   right: -60%;
 }
 }
