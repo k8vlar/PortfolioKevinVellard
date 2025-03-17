@@ -57,7 +57,7 @@ h2, .welcome, .demo, .name, .radio-container label {
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 350px;
+    width: calc(500*var(--res));
     height: auto;
     text-align: center;
     justify-items: center;
@@ -107,7 +107,11 @@ h2, .welcome, .demo, .name, .radio-container label {
 
 
 .loading {
-    text-align: center;
+  
+  text-align: center;
+  
+   
+
   }
   
   .loading span {
@@ -251,7 +255,7 @@ main {
 
 .score-container {
   position: absolute; 
-  top: calc(-2*var(--res)); 
+  top: calc(-8*var(--res)); 
   
   width: calc(380*var(--res));
   display: flex;
@@ -345,9 +349,9 @@ canvas {
 /********gameover*********/
 .game-over{
   position: absolute;
-  top: 50%;
-  left: 50% !important;
-  transform: translate(-50%, -50%);
+  top: 1svh;
+  left: 1svw;
+ 
 
 }
 .game-over img{
@@ -961,7 +965,7 @@ canvas {
   align-items: center;
   position: relative;
   flex-direction: column;
-  top: 8svh;
+  top: 5svh;
   left: 2svw;
   overflow: hidden;
   z-index: 1;
@@ -1357,18 +1361,20 @@ main{
 
 } */
 
-
+/**************************second section******************************************************/
 .second-section{
   background-image: url('assets/images/telephone/secondSectionImage2.webp');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   position: relative; 
 }
 
+
+
 .third-section{
   background-image: url('assets/images/telephone/projectpage.webp');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   
