@@ -55,7 +55,7 @@ h2, .welcome, .demo, .name, .radio-container label {
 .content-wrapper {
     position: absolute;
     top: 30%;
-    left: 49%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 350px;
     height: auto;
@@ -393,7 +393,7 @@ canvas {
     height: 100vh;
     width: 100%;
     background-image: url('assets/images/thirdComputer.webp');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     position: relative; 
@@ -467,9 +467,9 @@ canvas {
     top: 20svh; 
     left: 50%; 
     transform: translate(-50%, -50%); 
-    width:clamp(180px,calc(380*var(--res)), 380px);
+    width:calc(380*var(--res));
     padding: 10px;
-    height: clamp(90px,calc(50*var(--res)), 350px) !important;
+    height: calc(50*var(--res)) !important;
 }
 
 .project-icon {
@@ -479,14 +479,17 @@ canvas {
 }
 .projects-content-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Première ligne avec 3 colonnes */
+    grid-template-rows: auto auto; /* Deux lignes */
+    grid-template-areas:
+        "a b c" /* Première ligne */
+        "d e ."; /* Deuxième ligne avec 2 colonnes */
     grid-auto-flow: dense;
     
-    grid-gap: calc(5px * var(--res));
+    grid-gap: calc(2* var(--res));
     justify-content: center;
     align-items: center;
-    width: 30svw;
+    width: 20svw;
     height: calc(20*var(--res)) !important;
     text-align: center;
 }
@@ -498,7 +501,7 @@ canvas {
   1px -1px 0 black,
   -1px 1px 0 black,
   1px 1px 0 black;
-    font-size: clamp(1rem,calc(2.5*var(--res)), 1.5rem) !important;
+    font-size: calc(22*var(--res)) !important;
 }
 
 .projects-content-wrapper > *:nth-child(1) {
@@ -522,7 +525,7 @@ canvas {
 }
 
 .img.project-icon{
-  width:calc(30*var(--res)) !important;
+  width:calc(25*var(--res)) !important;
 }
 
 /*************************** Projects ****************************************/
@@ -616,8 +619,8 @@ canvas {
   
 .project img {
   
-    width: clamp(70px,calc(150*var(--res)), 150px);
-    height: clamp(70px,calc(150*var(--res)), 150px);
+    width: calc(150*var(--res));
+    height: calc(150*var(--res));
 
 }
 .project {
@@ -922,8 +925,8 @@ canvas {
 .perspective-skills {
   position: absolute;
   z-index: 3;
-  top: 32svh;
-  left: 10.5svw;
+  top: 30svh;
+  left: 14svw;
   perspective: 1000px;
   perspective-origin: 0% 50%;
 }
@@ -958,7 +961,7 @@ canvas {
   align-items: center;
   position: relative;
   flex-direction: column;
-  top: 10svh;
+  top: 8svh;
   left: 2svw;
   overflow: hidden;
   z-index: 1;
@@ -1419,7 +1422,6 @@ main{
 h2{
   font-size: 1rem;
   
-  margin: 0 auto;
 text-align: center;
 }
 .skills-content-wrapper{
@@ -1589,26 +1591,11 @@ align-items: center;
   width: 145px;
   justify-content: space-evenly;
 } */
-.projects{
-  top: 13% !important;
-  left: 51%;
-}
+
 .project-icon{
   width: calc(130*var(--res))!important;
   height: calc(130*var(--res)) !important;
   
-}
-.projects-content-wrapper{
-  width: 25svw !important;
-  height: calc(3*var(--res)) !important;
-  grid-gap:calc(3*var(--res)) !important;
-  
-}
-.projects-content-wrapper h2{
-  font-size: calc(35*var(--res)) !important
-}
-.projects-content-wrapper p{
-  font-size: calc(10*var(--res));
 }
 
 .controls {
@@ -1785,8 +1772,8 @@ main{
   
 }
 .canvas{
-  height: 80px !important;
-  width: 80px !important;
+  height: 60px !important;
+  width: 60px !important;
 }
 .score-container {
   position: absolute; 
