@@ -1,0 +1,51 @@
+name: Portfolio CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Étape 1 : Récupérer le code source
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Étape 2 : Valider HTML avec W3C Validator et HTML Validator CLI
+      - name: Validate HTML
+        run: |
+          curl -o validator https://validator.w3.org/nu/
+          java -jar validator --input index.html --output result.html
+          npx html-validator-cli --file index.html
+
+      # Étape 3 : Valider CSS avec W3C Validator et Stylelint
+      - name: Validate CSS
+        run: |
+          curl -o css-validator https://jigsaw.w3.org/css-validator/
+          java -jar css-validator --input styles.css --output result.css
+          npx stylelint "styles.css"
+
+      # Étape 4 : Linter JavaScript avec ESLint
+      - name: Lint JavaScript
+        run: |
+          npx eslint "scripts.js"
+
+      # Étape 5 : Configurer SSH pour le déploiement
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+
+      # Étape 6 : Déployer sur le serveur distant si tous les tests sont réussis
+      - name: Deploy files to server
+        run: |
+          rsync -avz --delete ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
